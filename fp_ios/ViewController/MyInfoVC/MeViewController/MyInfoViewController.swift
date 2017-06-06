@@ -97,7 +97,7 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         //边框
         headImgV.layer.borderColor = HEADER_BORDERCOLOR.cgColor
         headImgV.layer.borderWidth = 2
-//        headImgV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("headImgChangeBtnClick")))
+        headImgV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(headImgChangeBtnClick)))
         headImgBgV.addSubview(headImgV)
         //点击修改btn
 //        let btn = UIButton(frame: CGRectMake(-20, headImgV.bottom - 20, headImgV.width+20, 25))
@@ -205,26 +205,24 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     func headImgChangeBtnClick(){
         let cameraV:CameraView = CameraView()
         
-        /*
+        
         cameraV.showCamera { (selectImg, imgName, imgPath) -> Void in
-            
+             self.headImgV.image = selectImg
+
             //上传头像
             //用户id
-            let userInfo = SetUtil.checkSet()
-            let usermode = UserMode(JSONDecoder(userInfo))
-            let buyerId:String = String("\(usermode.buyerId)")
-            let imgParams = ["uploaderId":buyerId,"uploaderType":"1","uploadFrom":"1","file":imgPath,"fileName":imgName]
-            
-            var buyerIcon:String = String()
-            Network_Manager.shareInstance().uploadFile(imgParams, passValue: { (dic, success) -> Void in
-                if(success){
-                    buyerIcon = dic["fileUrl"] as! String
-                    SetUtil.changeUserHeader(buyerIcon)
-                    self.headImgV.image = selectImg
-                }
-            })
+//            let imgParams = ["uploaderId":buyerId,"uploaderType":"1","uploadFrom":"1","file":imgPath,"fileName":imgName]
+//            
+//            var buyerIcon:String = String()
+//            Network_Manager.shareInstance().uploadFile(imgParams, passValue: { (dic, success) -> Void in
+//                if(success){
+//                    buyerIcon = dic["fileUrl"] as! String
+//                    SetUtil.changeUserHeader(buyerIcon)
+//                    self.headImgV.image = selectImg
+//                }
+//            })
 
-        }*/
+        }
        
     }
     

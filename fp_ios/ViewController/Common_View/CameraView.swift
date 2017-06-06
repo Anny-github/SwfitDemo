@@ -108,16 +108,16 @@ class CameraView: UIView,UIImagePickerControllerDelegate,UINavigationControllerD
     }
     
     //TODO:弹出
-//    func showCamera(_ selectImg:SelectedImageBlock){
-//        self.selectedImage = selectImg
-//        
-//        UIView.animate(withDuration: 0.3, animations: { () -> Void in
-//           self.window1.addSubview(self)
-//           self.pickerCameraView.transform = CGAffineTransform(translationX: 0, y: -self.pickerCameraView.height)
-//            
-//        })
-//        
-//    }
+    func showCamera(_ selectImg:@escaping SelectedImageBlock){
+        self.selectedImage = selectImg
+        
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+           self.window1.addSubview(self)
+           self.pickerCameraView.transform = CGAffineTransform(translationX: 0, y: -self.pickerCameraView.height)
+            
+        })
+        
+    }
     
     //消失
     #if __CC_PLATFORM_IOS
