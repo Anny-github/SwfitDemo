@@ -133,7 +133,7 @@ class Network_Manager {
     func getValidateCode(_ params:Dictionary<String,AnyObject>,passValue:DictionaryBlock)
     {
         //上行数据
-        TSLog("上行数据",params)
+        TSLog("上行数据 \(params)")
         
         
     }
