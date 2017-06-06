@@ -101,7 +101,7 @@ class RegLoginViewController: BaseViewController,UIScrollViewDelegate{
         
         //MARK: 手机输入视图  点击获取验证码 跳转
         phoneView.getCodeBtnSelect = {
-            print(UserDefaults.standard.value(forKey: "UserPhone"))
+            TSLog(UserDefaults.standard.value(forKey: "UserPhone"))
             UIView.animate(withDuration: 0.5, animations: { () -> Void in
                 self.scrollV.contentOffset = CGPoint(x: SRC_WIDTH, y: 0)
                 self.topView.scrollViewContentOffSet(self.scrollV.contentOffset)

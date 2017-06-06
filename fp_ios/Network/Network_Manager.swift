@@ -47,7 +47,7 @@ class Network_Manager {
                 TSLog("解析失败")
             }
             
-            print(dic)
+            TSLog(dic)
             
             SVProgressHUD.dismiss()
 
@@ -69,10 +69,10 @@ class Network_Manager {
             do{
                 dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
             }catch{
-                print("解析失败")
+                TSLog("解析失败")
             }
             
-            print(result)
+            TSLog(result)
             
             SVProgressHUD.dismiss()
             
@@ -133,7 +133,7 @@ class Network_Manager {
     func getValidateCode(_ params:Dictionary<String,AnyObject>,passValue:DictionaryBlock)
     {
         //上行数据
-        print("上行数据",params)
+        TSLog("上行数据",params)
         
         
     }

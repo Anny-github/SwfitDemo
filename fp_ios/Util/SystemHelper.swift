@@ -69,7 +69,7 @@ class SystemHelper:NSObject {
             // 3、开启网络状态消息监听
             try self.reach.startNotifier()
         }catch{
-            print("could not start reachability notifier")
+            TSLog("could not start reachability notifier")
         }
     }
     //    // 移除消息通知
@@ -86,14 +86,14 @@ class SystemHelper:NSObject {
         let reachability = note.object as! Reachability // 准备获取网络连接信息
         
         if reachability.isReachable { // 判断网络连接状态
-            print("网络连接：可用")
+            TSLog("网络连接：可用")
             if reachability.isReachableViaWiFi { // 判断网络连接类型
-                print("连接类型：WiFi")
+                TSLog("连接类型：WiFi")
             } else {
-                print("连接类型：移动网络")
+                TSLog("连接类型：移动网络")
             }
         } else {
-            print("网络连接：不可用")
+            TSLog("网络连接：不可用")
             DispatchQueue.main.async { // 不加这句导致界面还没初始化完成就打开警告框，这样不行
                 self.alert_noNetwrok() // 警告框，提示没有网络
             }

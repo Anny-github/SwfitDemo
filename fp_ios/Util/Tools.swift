@@ -15,7 +15,7 @@ func TSLog<T>(_ messsage : T, file : String = #file, funcName : String = #functi
         
         let fileName = (file as NSString).lastPathComponent
         
-        print("\(fileName):(\(lineNum))-\(messsage)")
+        TSLog("\(fileName):(\(lineNum))-\(messsage)")
         
     #endif
 }

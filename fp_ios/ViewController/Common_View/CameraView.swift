@@ -53,7 +53,7 @@ class CameraView: UIView,UIImagePickerControllerDelegate,UINavigationControllerD
             try FileManager.default.createDirectory(atPath: imageDocPath, withIntermediateDirectories: true, attributes: nil)
             
         } catch {
-            print("error")
+            TSLog("error")
         }
         
         

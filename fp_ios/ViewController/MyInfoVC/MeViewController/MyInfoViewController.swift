@@ -62,10 +62,16 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     
     func getUserInfo(){
         //advertisement/getAdList
-        let urlString = "userSession/loginByPhonePass"
-        let password = "123456"
-        //E10ADC3949BA59ABBE56E057F20F883E
-        let dic = ["phone":"15910615632","userPass":"E10ADC3949BA59ABBE56E057F20F883E"]
+//        let urlString = "userSession/loginByPhonePass"
+//        let password = "123456"
+//        //E10ADC3949BA59ABBE56E057F20F883E
+//        let dic = ["phone":"15910615632","userPass":"E10ADC3949BA59ABBE56E057F20F883E"]
+//        Network_Manager.shareInstance().postRequest(urlString, params: dic) { (dictionary, success) in
+//            
+//        }
+        
+        let urlString = "advertisement/getAdList"
+        let dic = ["examType":"3"]
         Network_Manager.shareInstance().postRequest(urlString, params: dic) { (dictionary, success) in
             
         }
