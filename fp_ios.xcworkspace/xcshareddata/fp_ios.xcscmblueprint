@@ -1,0 +1,34 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "96D352E2FD17DADB1ED9B907F256C3BEC914F4FA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "96D352E2FD17DADB1ED9B907F256C3BEC914F4FA" : 0,
+    "DFEEFF52A4B070304957194B35BB6850C3BD5F5C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2ECAEAE9-6790-49E5-9F23-671FEBAA33C0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "96D352E2FD17DADB1ED9B907F256C3BEC914F4FA" : "fp_swift_0916\/",
+    "DFEEFF52A4B070304957194B35BB6850C3BD5F5C" : "fp_swift_0915"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "fp_ios",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "fp_ios.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+<<<<<<< HEAD
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.oschina.net:cczuysh\/fp_swift_0916.git",
+=======
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.oschina.net\/cczuysh\/fp_swift_0916.git",
+>>>>>>> 5c5e83bb9580736eb6b238d4babea17f5a46dfab
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "96D352E2FD17DADB1ED9B907F256C3BEC914F4FA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.oschina.net\/cczuysh\/fp_swift_0915.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DFEEFF52A4B070304957194B35BB6850C3BD5F5C"
+    }
+  ]
+}

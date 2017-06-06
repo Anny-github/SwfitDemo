@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="KRL-hr-0FU" customClass="PhoneInputView" customModule="fp_ios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xB7-ev-6Wk">
+                    <rect key="frame" x="20" y="229" width="280" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="xB7-ev-6Wk" secondAttribute="height" multiplier="7:1" id="uhy-LJ-UqZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiT-LR-ULh">
+                    <rect key="frame" x="20" y="284" width="280" height="40"/>
+                    <color key="backgroundColor" red="0.066666666666666666" green="0.24313725490196078" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ZiT-LR-ULh" secondAttribute="height" multiplier="7:1" id="ngt-jl-Xpv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="获取验证码">
+                        <color key="titleColor" red="0.18039215689999999" green="0.64705882349999999" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="getCodeBtnClick:" destination="KRL-hr-0FU" eventType="touchUpInside" id="nvR-Yg-C0f"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ZiT-LR-ULh" firstAttribute="top" secondItem="xB7-ev-6Wk" secondAttribute="bottom" constant="15" id="5Hm-VB-vk5"/>
+                <constraint firstAttribute="trailing" secondItem="xB7-ev-6Wk" secondAttribute="trailing" constant="20" id="9ml-ya-Th4"/>
+                <constraint firstItem="xB7-ev-6Wk" firstAttribute="leading" secondItem="KRL-hr-0FU" secondAttribute="leading" constant="20" id="QyX-Vr-0NI"/>
+                <constraint firstAttribute="centerY" secondItem="xB7-ev-6Wk" secondAttribute="centerY" constant="35" id="Rsv-sF-SM0"/>
+                <constraint firstItem="ZiT-LR-ULh" firstAttribute="leading" secondItem="xB7-ev-6Wk" secondAttribute="leading" id="ZAf-ho-Bxi"/>
+                <constraint firstItem="ZiT-LR-ULh" firstAttribute="trailing" secondItem="xB7-ev-6Wk" secondAttribute="trailing" id="cyd-c4-q2q"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="geyCodeBtn" destination="ZiT-LR-ULh" id="Dnk-kt-761"/>
+                <outlet property="phoneTf" destination="xB7-ev-6Wk" id="Bp4-A2-MM3"/>
+            </connections>
+            <point key="canvasLocation" x="348" y="279"/>
+        </view>
+    </objects>
+</document>

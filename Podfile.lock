@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.4.0)
+  - JSONJoy-Swift (3.0.1)
+  - Kingfisher (3.8.0)
+  - ReachabilitySwift (3)
+  - SVProgressHUD (2.1.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - JSONJoy-Swift
+  - Kingfisher
+  - ReachabilitySwift (~> 3)
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  JSONJoy-Swift: ef6eccdcf319412f149bbdd031b27f0430d5d576
+  Kingfisher: 7b8a055fc5c2afc61407d1a499e4e0981b1a6ac4
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+
+PODFILE CHECKSUM: d7fec87d9b23589f58b29c494f5a091d59b0e10c
+
+COCOAPODS: 1.2.1
