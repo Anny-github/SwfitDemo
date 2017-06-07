@@ -70,7 +70,7 @@ class RegLoginViewController: BaseViewController,UIScrollViewDelegate{
         imageA.append(UIImage(named: "login_down_icon")!)
         
         let image:UIImage = UIImage(named: "onlinearrow_bg")!
-        topView.initWithTitleAndImage(image, imageArr: imageA as NSArray)
+        topView.initWithTitleAndImage(image, imageArr: imageA)
         self.view.addSubview(topView)
 
         

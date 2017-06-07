@@ -46,8 +46,8 @@ class Network_Manager {
             }catch{
                 TSLog("解析失败")
             }
-            
-            TSLog(dic)
+                        
+            TSLog("\(dic)===\(String(describing: result.error?.localizedDescription))")
             
             SVProgressHUD.dismiss()
 
@@ -65,14 +65,15 @@ class Network_Manager {
         self.request = Alamofire.request(urlStr, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { (result) in
             
             let data = result.data
-            var dic:[String:AnyObject] = Dictionary<String, AnyObject>()
+            var dic:[String:AnyObject] = Dictionary()
             do{
                 dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
             }catch{
                 TSLog("解析失败")
             }
             
-            TSLog(result)
+            TSLog("\(dic)===\(String(describing: result.error?.localizedDescription))")
+
             
             SVProgressHUD.dismiss()
             

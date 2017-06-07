@@ -737,7 +737,7 @@
 					"$(PROJECT_DIR)/fp_ios/Third/WeChatSDK_1.5_OnlyIphone",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D DEBUG\"";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ysh.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "07b09ff9-cae3-4284-8554-096b2f334aaf";

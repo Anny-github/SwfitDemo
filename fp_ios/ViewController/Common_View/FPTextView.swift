@@ -29,7 +29,7 @@ class FPTextView: UITextView,UITextViewDelegate{
         self.font = UIFont.systemFont(ofSize: 14)
         
         // 监听内部文字改变
-        NotificationCenter.default.addObserver(self, selector: Selector("textDidChange"), name: NSNotification.Name.UITextViewTextDidChange, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: NSNotification.Name.UITextViewTextDidChange, object: self)
         
         
     }

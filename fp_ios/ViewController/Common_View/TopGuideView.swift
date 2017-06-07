@@ -43,15 +43,15 @@ class TopGuideView: UIView {
     
     
     //public 用title和image初始化
-    func initWithTitleAndImage(_ sliderImage:UIImage,imageArr:NSArray) -> TopGuideView{
+    func initWithTitleAndImage(_ sliderImage:UIImage,imageArr:Array<UIImage>) -> TopGuideView{
         self.backgroundColor = SYS_BLUE
         
         //两个btn
         leftBtn = IconButton(frame: CGRect(x: 0, y: 0, width: self.width/2.0, height: self.height))
-        leftBtn.setImage(imageArr.firstObject as? UIImage, for: UIControlState())
+        leftBtn.setImage(imageArr[0] as? UIImage, for: UIControlState())
         leftBtn.setImage(imageArr[1] as? UIImage, for: UIControlState.selected)
         
-        leftBtn.addTarget(self, action: Selector("leftBtnClick:") as Selector, for: UIControlEvents.touchUpInside)
+        leftBtn.addTarget(self, action: #selector(TopGuideView.leftBtnClick(_:)) as Selector, for: UIControlEvents.touchUpInside)
         self.addSubview(leftBtn)
         leftBtn.contentMode = UIViewContentMode.center
         leftBtn.isSelected = true
