@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import JSONJoy
-import SVProgressHUD
+import ObjectMapper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{

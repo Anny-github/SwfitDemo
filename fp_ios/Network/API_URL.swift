@@ -8,7 +8,9 @@
 //http://wechat.98daijia.com/fpx-mobile-war
 
 let TEST_BASE_URL:String  = "http://192.168.0.170:8080/fpx-mobile-war/"    //      测试地址
-let BASE_URL:String       = "http://api.yingshibao.com/"    //      正式地址
+//http://ec2-54-254-202-112.ap-southeast-1.compute.amazonaws.com
+//http://api.yingshibao.com/
+let BASE_URL:String = "http://api.yingshibao.com/"  //      正式地址
 
 let HTTP_METHOD:String    = "POST"              //      客户端与服务器端交互接口，均使用POST方法。
 let APPKEY:String         = "FPX_2015_KEY"      //      客户端与服务器端交互接口，均使用POST方法。

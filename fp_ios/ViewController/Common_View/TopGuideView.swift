@@ -43,13 +43,13 @@ class TopGuideView: UIView {
     
     
     //public 用title和image初始化
-    func initWithTitleAndImage(_ sliderImage:UIImage,imageArr:Array<UIImage>) -> TopGuideView{
+    func setupTitleAndImage(_ sliderImage:UIImage,imageArr: Array<UIImage>){
         self.backgroundColor = SYS_BLUE
         
         //两个btn
         leftBtn = IconButton(frame: CGRect(x: 0, y: 0, width: self.width/2.0, height: self.height))
-        leftBtn.setImage(imageArr[0] as? UIImage, for: UIControlState())
-        leftBtn.setImage(imageArr[1] as? UIImage, for: UIControlState.selected)
+        leftBtn.setImage(imageArr[0], for: UIControlState())
+        leftBtn.setImage(imageArr[1], for: UIControlState.selected)
         
         leftBtn.addTarget(self, action: #selector(TopGuideView.leftBtnClick(_:)) as Selector, for: UIControlEvents.touchUpInside)
         self.addSubview(leftBtn)
@@ -57,8 +57,8 @@ class TopGuideView: UIView {
         leftBtn.isSelected = true
         
         rightBtn = IconButton(frame: CGRect(x: self.width/2.0, y: 0, width: self.width/2.0, height: self.height))
-        rightBtn.setImage(imageArr[2] as? UIImage, for: UIControlState())
-        rightBtn.setImage(imageArr[3] as? UIImage, for: UIControlState.selected)
+        rightBtn.setImage(imageArr[2], for: UIControlState())
+        rightBtn.setImage(imageArr[3], for: UIControlState.selected)
         rightBtn.setImage(UIImage(named: "login_disable_icon"), for: UIControlState.disabled)
         if(UserDefaults.standard.value(forKey: "UserPhone") == nil){
             rightBtn.isEnabled = false
@@ -78,7 +78,6 @@ class TopGuideView: UIView {
         self.addSubview(sliderImageV)
         sliderImageV.setCenterX(leftBtn.centerX)
         sliderImageV.contentMode = UIViewContentMode.center
-        return self
     }
   
     //按钮点击，调用闭包

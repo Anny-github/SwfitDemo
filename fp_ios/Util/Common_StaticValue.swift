@@ -55,6 +55,8 @@ let NOFI_LOGINSUCCESS = "loginSuccess"
 let NOFI_CHANGEINFO   = "changeUserInfo"
 let NOFI_CHANGEINFO_PRODUCT = "changeProductInfo"
 
+
+
 //图片 
 //头像
 let HeadImage = UIImage(named: "head_icon")

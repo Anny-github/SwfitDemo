@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import JSONJoy
+import ObjectMapper
+
 /*
  
  //@property (nonatomic,strong) UIImage *photoImage;  // UIImage 类型
@@ -17,34 +18,25 @@ import JSONJoy
  @property (nonatomic,copy) NSString *searchWord;
  @property (nonatomic,copy) NSString *titleNav;
  */
-struct UserMode: JSONJoy {
+struct UserMode: Mappable{
     
     var userId:String!
-    var userName:String?
-    var userImage:String?
-    var loginState:String?
-    var loginType:String?
-    var userSex:String?
-    var phoneNum:String?
-    var code:String?
+    var userName:String!
+    var userImage:String!
+    var loginState:String!
+    var loginType:String!
+    var userSex:String!
+    var phoneNum:String!
+    var code:String!
     var sessionId:String!
     
-    init() {
+    init?(map: Map) {
         
     }
     
-    init(_ decoder: JSONDecoder) throws {
-        
-        self.userId = try decoder["userId"].get()
-        self.userName = decoder["userName"].getOptional()
-        self.userImage = decoder["userImage"].getOptional()
-        self.loginState = decoder["loginState"].getOptional()
-        self.loginType = decoder["loginType"].getOptional()
-        self.userSex = decoder["userSex"].getOptional()
-        self.phoneNum = decoder["phoneNum"].getOptional()
-        self.code = decoder["code"].getOptional()
-        self.sessionId = try decoder["sessionId"].get()
-        
+    mutating func mapping(map: Map) {
+        userId 	 <- map["userId"]
+        userName <- map["userName"]
     }
 
 }

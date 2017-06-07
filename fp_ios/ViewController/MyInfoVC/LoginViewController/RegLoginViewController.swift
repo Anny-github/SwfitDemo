@@ -9,7 +9,6 @@
 // 登录 注册 
 
 import UIKit
-import JSONJoy
 
 
 class RegLoginViewController: BaseViewController,UIScrollViewDelegate{
@@ -70,7 +69,7 @@ class RegLoginViewController: BaseViewController,UIScrollViewDelegate{
         imageA.append(UIImage(named: "login_down_icon")!)
         
         let image:UIImage = UIImage(named: "onlinearrow_bg")!
-        topView.initWithTitleAndImage(image, imageArr: imageA)
+        topView.setupTitleAndImage(image, imageArr: imageA)
         self.view.addSubview(topView)
 
         

@@ -8,9 +8,10 @@
 
 // 我（1、有个人资料和产品资料入口  2、关于我们 3、帮助反馈  4、鼓励（appStore））
 import UIKit
+import ObjectMapper
 
-import JSONJoy
-import Alamofire
+let TestGetUrl = "http://www.xiaohongshu.com/api/sns/v1/system_service/config?build=421018&deviceId=4BDA1423-0084-4D19-8696-B570B3DBF43B&lang=zh&launchtimes=4&package=com.xingin.discover&platform=iOS&sid=session.1181171505858585505&sign=3e3ef0c177e7cf91a3e6e3856a97dc23&t=1496820966&version=4.21"
+
 
 class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate {
     var centerView: UIView!
@@ -61,20 +62,41 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     }
     
     func getUserInfo(){
-        //advertisement/getAdList
-//        let urlString = "userSession/loginByPhonePass"
-//        let password = "123456"
-//        //E10ADC3949BA59ABBE56E057F20F883E
-//        let dic = ["phone":"15910615632","userPass":"E10ADC3949BA59ABBE56E057F20F883E"]
-//        Network_Manager.shareInstance().postRequest(urlString, params: dic) { (dictionary, success) in
-//            
-//        }
+        
+        Network_Manager.shareInstance().getRequest(urlString: TestGetUrl, params: [:]) { (result, success) in
+            if success{
+                let testmodel = Mapper<TestModel>().map(JSONString:result)
+                TSLog(testmodel?.api_ssl)
+                
+                TSLog(testmodel?.store)
+                
+                for dic in (testmodel?.tabbar?.tabs?.enumerated())!{
+                    TSLog(dic)
+                }
+
+
+            }else{
+
+            }
+        }
+        
+
         
         let urlString = "advertisement/getAdList"
         let dic = ["examType":"3"]
-        Network_Manager.shareInstance().postRequest(urlString, params: dic) { (dictionary, success) in
-            
-        }
+//        Network_Manager.shareInstance().postRequest(urlString, params: dic) { (dictionary, success) in
+//            
+//        }
+//        Alamofire.request("http://api.yingshibao.com/advertisement/getAdList", method: .post, parameters: strParams).responseJSON { (responseData) in
+//            
+//        }
+//        
+////        Alamofire.request("http://api.yingshibao.com/advertisement/getAdList", method: .post, parameters: strParams).response { (responseData) in
+////            
+////            TSLog( try?  JSONSerialization.jsonObject(with: responseData.data!, options: JSONSerialization.ReadingOptions.allowFragments))
+////        }
+        
+
         
     }
     func setSubViews(){

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import JSONJoy
 
 class AppFile: NSObject {
 
@@ -55,19 +54,19 @@ class AppFile: NSObject {
 
     }
     
-    class func userModel() -> UserMode{
-        
-        let dic:NSDictionary = AppFile.checkSet()
-        var usermode:UserMode = UserMode()
-        do{
-            usermode = try UserMode(JSONDecoder(dic))
-
-        }catch{
-            
-        }
-        return usermode
-    
-    }
+//    class func userModel() -> UserMode{
+//        
+//        let dic:NSDictionary = AppFile.checkSet()
+//        var usermode:UserMode = UserMode(JSONString: String.data(JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.prettyPrinted)))
+//        do{
+//            usermode = try UserMode(JSONDecoder(dic))
+//
+//        }catch{
+//            
+//        }
+//        return usermode
+//    
+//    }
     
     class func saveSet(_ dic :NSDictionary)
     {
@@ -76,19 +75,19 @@ class AppFile: NSObject {
     }
     
     //MARK:取用户信息字典
-    class func getUserInfo()->UserMode{
-        TSLog(AppFile.UsrInfoPath())
-        let dic:NSDictionary = AppFile.checkSet()
-        
-        TSLog(dic)
-        var userInfo:UserMode = UserMode()
-        do{
-            userInfo = try UserMode(JSONDecoder(dic))
-        }catch{
-//            xfl
-        }
-        return userInfo
-    }
+//    class func getUserInfo()->UserMode{
+//        TSLog(AppFile.UsrInfoPath())
+//        let dic:NSDictionary = AppFile.checkSet()
+//        
+//        TSLog(dic)
+//        var userInfo:UserMode = UserMode()
+//        do{
+//            userInfo = try UserMode(JSONDecoder(dic))
+//        }catch{
+////            xfl
+//        }
+//        return userInfo
+//    }
     
     
 }

@@ -55,6 +55,7 @@
 		1C8966271BCF9C33008D5ACC /* SystemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8966261BCF9C33008D5ACC /* SystemHelper.swift */; };
 		1CB414431BC64D4A0015FC9F /* AboutViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB414421BC64D4A0015FC9F /* AboutViewCotroller.xib */; };
 		53052F411EE6A6E100E061FA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53052F401EE6A6E100E061FA /* Tools.swift */; };
+		53B6CF571EE7FFBA001B1C5F /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6CF561EE7FFBA001B1C5F /* TestModel.swift */; };
 		763E46BC4AD7A1B99F134BFA /* Pods_fp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F28F0FF4FA36A6ED88E85E /* Pods_fp_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +139,7 @@
 		1CB414421BC64D4A0015FC9F /* AboutViewCotroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewCotroller.xib; sourceTree = "<group>"; };
 		53052F3F1EE6A41100E061FA /* fp_ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fp_ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		53052F401EE6A6E100E061FA /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		53B6CF561EE7FFBA001B1C5F /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		8492E502BDA1898B1CA8176F /* Pods-fp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fp_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fp_ios/Pods-fp_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		C2F28F0FF4FA36A6ED88E85E /* Pods_fp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -352,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				1C1189CF1B9052F100D3F234 /* UserMode.swift */,
+				53B6CF561EE7FFBA001B1C5F /* TestModel.swift */,
 			);
 			path = Mode;
 			sourceTree = "<group>";
@@ -450,7 +453,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = yushuhui;
 				TargetAttributes = {
 					1537E37A1B730B230007A10E = {
@@ -572,6 +575,7 @@
 			files = (
 				1C1CF6E61B7B62A50089CE5E /* RegLoginViewController.swift in Sources */,
 				1C25966E1B86F51000359A46 /* AboutViewController.swift in Sources */,
+				53B6CF571EE7FFBA001B1C5F /* TestModel.swift in Sources */,
 				1C1189D01B9052F100D3F234 /* UserMode.swift in Sources */,
 				1C36436D1BB1514F00447F51 /* ExistLoginView.swift in Sources */,
 				1C754A571B8C6BDF00E4AC51 /* Common_StaticValue.swift in Sources */,
@@ -640,8 +644,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -686,8 +692,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -707,6 +715,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

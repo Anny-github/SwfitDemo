@@ -8,20 +8,29 @@
 
 import UIKit
 import Alamofire
-import JSONJoy
+import SwiftyJSON
 import SVProgressHUD
+import ObjectMapper
 
 
+// typealias别名
 public typealias Parameters = [String: Any]
 
 
 //newsmode
-typealias ArrayDataBlock = (_ modeArr:NSArray,_ success:Bool)->Void
+typealias ArrayDataBlock = (_ modeArr:Array<Any>,_ success:Bool)->Void
 
 //post
-typealias DictionaryBlock = (_ dic:NSDictionary,_ success:Bool)->Void
+typealias CompletionBlock = (_ result:String,_ success:Bool)->Void
+
+
+let headers: HTTPHeaders = [
+//    "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
+    "Accept": "application/json"
+]
 
 private let networkMgr = Network_Manager()
+
 
 class Network_Manager {
     
@@ -33,52 +42,36 @@ class Network_Manager {
     }
     
     //统一的post方法
-    func postRequest(_ urlString:String,params:Parameters,passValueDictionary:DictionaryBlock)
+    func postRequest(_ urlString:String,params:Parameters,passValue: @escaping CompletionBlock)
     {
-        let urlStr = BASE_URL+urlString   //请求地址拼接
         SVProgressHUD.show()
-    
-        self.request = Alamofire.request(urlStr, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { (result) in
-            let data = result.data
-            var dic:[String:AnyObject] = Dictionary<String, AnyObject>()
-            do{
-                dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
-            }catch{
-                TSLog("解析失败")
-            }
-                        
-            TSLog("\(dic)===\(String(describing: result.error?.localizedDescription))")
+        var urlStr = urlString   //请求地址拼接
+        if !urlString.contains("http") {
+            urlStr = BASE_URL + urlString
+        }
+
+         Alamofire.request(urlStr, method: .post, parameters: params, encoding:URLEncoding.queryString, headers: nil).responseJSON(completionHandler: { (responseData) in
             
-            SVProgressHUD.dismiss()
-
-
+            self.parseJsonResponse(responseData, passValue: passValue)
+         
         })
-   
     }
     
 //    //统一的get方法
-    func getRequest(urlString:String,params:Parameters,passValue:DictionaryBlock)
+    func getRequest(urlString:String,params:Parameters,passValue:@escaping CompletionBlock)
     {
         SVProgressHUD.show()
-        let urlStr = BASE_URL+urlString   //请求地址拼接
+        var urlStr = urlString   //请求地址拼接
+        if !urlString.contains("http") {
+            urlStr = BASE_URL + urlString
+        }
         
-        self.request = Alamofire.request(urlStr, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { (result) in
-            
-            let data = result.data
-            var dic:[String:AnyObject] = Dictionary()
-            do{
-                dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
-            }catch{
-                TSLog("解析失败")
-            }
-            
-            TSLog("\(dic)===\(String(describing: result.error?.localizedDescription))")
-
-            
-            SVProgressHUD.dismiss()
-            
+       Alamofire.request(urlStr, method: .get, parameters: params, encoding: URLEncoding.queryString, headers: nil).responseJSON(completionHandler: { (responseData) in
+        
+        self.parseJsonResponse(responseData, passValue: passValue)
+      
         })
-        
+    
     }
     
     
@@ -86,52 +79,27 @@ class Network_Manager {
     * 解析返回的data,返回nsdictionary
     */
     
-    func parseJsonResponse(_ data:AnyObject)
+    func parseJsonResponse(_ responseData:DataResponse<Any>,passValue:@escaping CompletionBlock)
     {
+        
+        if responseData.result.isSuccess{ //请求成功
+            let json:JSON = JSON(responseData.data!)
+            //if json["code"] == 0  说明有数据
+            passValue(json["data"].rawString(String.Encoding.utf8, options: JSONSerialization.WritingOptions.prettyPrinted)!,true)
+            
+        }else{
+            passValue("",false)
+        }
+        
+        SVProgressHUD.dismiss()
 
     }
     
     
     
-//    func test(a:Int,b:CGFloat,passVlue:ArrayDataBlock)
-//    {
-//        
-//        println(a)
-//        println(b)
-//        
-//        Alamofire.request(.GET, "http://api.zhigu.bjzzcb.com/v1/article/list")
-//            .responseJSON {(request, response, JSON, error) in
-//                //                println(JSON)
-//                let dict:NSDictionary = JSON as! NSDictionary
-//                println(dict)
-//                
-//                var aArray:Array<NewsMode>?  //数组
-//                aArray = Array<NewsMode>()
-//                
-//                if let aStatus1 = dict["result"] as? NSMutableArray{
-//                    
-//                    //  print(aStatus1)
-//                    
-//                    for a in aStatus1
-//                    {
-//                        let news = NewsMode(JSONDecoder(a))
-////                        println(news)
-////                        println("title is: \(news.title!)")
-//                        aArray?.append(news)
-//                        
-//                    }
-//                    passVlue(modeArr:aArray,success:true)
-//                    
-//                }
-//        }
-//        
-//        
-//    }
-//    
+   //TODO: 4.1	获取验证码接口
     
-    // TODO: 4.1	获取验证码接口
-    
-    func getValidateCode(_ params:Dictionary<String,AnyObject>,passValue:DictionaryBlock)
+    func getValidateCode(_ params:Dictionary<String,AnyObject>,passValue:CompletionBlock)
     {
         //上行数据
         TSLog("上行数据 \(params)")
@@ -140,7 +108,7 @@ class Network_Manager {
     }
     
     //TODO: 4.2	登录接口
-    func login(_ params:Dictionary<String,AnyObject>,passValue:DictionaryBlock)
+    func login(_ params:Dictionary<String,AnyObject>,passValue:CompletionBlock)
     {
         //上行数据
         print("上行数据",params)
@@ -149,7 +117,7 @@ class Network_Manager {
     }
     
     //TODO: 4.3	设置个人资料接口
-    func updateBuyerInfo(_ params:Dictionary<String,AnyObject>,passValue:DictionaryBlock)
+    func updateBuyerInfo(_ params:Dictionary<String,AnyObject>,passValue:CompletionBlock)
     {
         
                
