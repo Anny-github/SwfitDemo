@@ -16,37 +16,37 @@ class AppFile: NSObject {
         return infoPath
     }
     
-    class func checkSet() -> NSMutableDictionary{
+    class func checkSet() -> [String:Any]{
         let path:String = AppFile.UsrInfoPath()
         let fileMgr:FileManager = FileManager.default
         if(!fileMgr.fileExists(atPath: path)){
             let dic:NSDictionary = ["default":"FP"]
             dic.write(toFile: path, atomically: true)
         }
-        let mutableDic:NSMutableDictionary = NSMutableDictionary(contentsOfFile: path)!
+        let mutableDic:[String:Any] = Dictionary()
         
         return mutableDic
     }
     
     
     //MARK:存储用户信息字典
-    class func saveUserInfo(_ userInfo:NSDictionary){
+    class func saveUserInfo(_ userInfo:Dictionary<String, Any>){
         //print(NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true).first as! String)
         
-        let dic:NSMutableDictionary = AppFile.checkSet()
+        var dic:[String:Any] = AppFile.checkSet()
 
-        let arr = userInfo.allKeys
+        let arr:EnumeratedSequence = userInfo.keys.enumerated()
     
         for key in arr
         {
-            let value = userInfo.object(forKey: key)
+            let value = userInfo[Key ]
             TSLog(value)
 
             if value as! NSObject == NSNull() || value as! String == "<null>"
             {
                 
             }else{
-                dic.setValue(value, forKey: key as! String)
+                dic.updateValue(value, forKey: key!)
             }
         }
         
@@ -68,10 +68,11 @@ class AppFile: NSObject {
 //    
 //    }
     
-    class func saveSet(_ dic :NSDictionary)
+    class func saveSet(_ dic :Dictionary<String,Any>)
     {
         let path:String = AppFile.UsrInfoPath()
-        dic.write(toFile: path, atomically: true)
+        let dict:NSDictionary = NSDictionary(dictionary: dic)
+        dict.write(toFile: path, atomically: true)
     }
     
     //MARK:取用户信息字典
