@@ -50,7 +50,7 @@ class Network_Manager {
             urlStr = BASE_URL + urlString
         }
 
-         Alamofire.request(urlStr, method: .post, parameters: params, encoding:URLEncoding.queryString, headers: nil).responseJSON(completionHandler: { (responseData) in
+         Alamofire.request(urlStr, method: .post, parameters: params, encoding:URLEncoding.queryString, headers: headers).responseJSON(completionHandler: { (responseData) in
             
             self.parseJsonResponse(responseData, passValue: passValue)
          
@@ -66,7 +66,7 @@ class Network_Manager {
             urlStr = BASE_URL + urlString
         }
         
-       Alamofire.request(urlStr, method: .get, parameters: params, encoding: URLEncoding.queryString, headers: nil).responseJSON(completionHandler: { (responseData) in
+       Alamofire.request(urlStr, method: .get, parameters: params, encoding: URLEncoding.queryString, headers: headers).responseJSON(completionHandler: { (responseData) in
         
         self.parseJsonResponse(responseData, passValue: passValue)
       
@@ -85,6 +85,7 @@ class Network_Manager {
         if responseData.result.isSuccess{ //请求成功
             let json:JSON = JSON(responseData.data!)
             //if json["code"] == 0  说明有数据
+            
             passValue(json["data"].rawString(String.Encoding.utf8, options: JSONSerialization.WritingOptions.prettyPrinted)!,true)
             
         }else{

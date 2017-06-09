@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         // tabBarItem上是一个navcontroller
         
         let vc3 = MyInfoViewController()
-        let nav3 = UINavigationController(rootViewController: vc3)
+        let nav3 = BaseNavigationController(rootViewController: vc3)
         nav3.tabBarItem = self.initTabBarItem("", image: Tab_MeImg_NoSelect!, selectImage: Tab_MeImg_Select!)
         
         

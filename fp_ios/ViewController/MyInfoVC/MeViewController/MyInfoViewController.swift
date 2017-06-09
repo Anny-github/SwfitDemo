@@ -54,9 +54,12 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = SYS_BLUE
+        self.view.backgroundColor = SYS_BGCOLOR
         self.navbar.isHidden = true
-        self.statusView.backgroundColor = SYS_BLUE
+        self.statusView.isHidden = true
+//        self.statusView.backgroundColor = SYS_BLUE
+        UIApplication.shared.setStatusBarHidden(true, with: .none)
+
         setSubViews()
 
     }
@@ -66,11 +69,13 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         Network_Manager.shareInstance().getRequest(urlString: TestGetUrl, params: [:]) { (result, success) in
             if success{
                 let testmodel = Mapper<TestModel>().map(JSONString:result)
-                TSLog(testmodel?.api_ssl)
                 
-                TSLog(testmodel?.store)
+                TSLog("api_ssl ======= \(testmodel?.api_ssl)" )
                 
+                TSLog("testmodel?.store ====== \(testmodel?.store)")
+                TSLog("testmodel?.tabbar?.tabtitlecolor==========\(testmodel?.tabbar?.tabtitlecolor)")
                 for dic in (testmodel?.tabbar?.tabs?.enumerated())!{
+                    
                     TSLog(dic)
                 }
 
@@ -101,7 +106,7 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     }
     func setSubViews(){
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: SRC_WIDTH, height: 160+115+40))
-        headerView.backgroundColor = SYS_BGCOLOR
+        headerView.backgroundColor = SYS_BGCOLOR;
         
         //头像视图
         let headImgBgV = UIView(frame: CGRect(x: 0, y: 0, width: SRC_WIDTH, height: 160))
@@ -159,16 +164,16 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         self.centerView.addSubview(produceBtn)
         
         //MARK:tableView列表
-        tableView.backgroundColor = SYS_BLUE
+        tableView.backgroundColor = SYS_BGCOLOR
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.tableHeaderView = headerView
         
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: SRC_WIDTH, height: 1000))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: SRC_WIDTH, height: SRC_HEIGHT - headerView.height - 100))
         view.backgroundColor = SYS_BGCOLOR
         self.tableView.tableFooterView = view
-        self.tableView.isScrollEnabled = false
+        self.tableView.isScrollEnabled = true
         
     }
     
@@ -195,17 +200,16 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        //关于
-//        let aboutVC:AboutViewController = AboutViewController()
-//        aboutVC.hidesBottomBarWhenPushed =  true
+        let aboutVC:AboutViewController = AboutViewController()
 //        //帮助与反馈
 //        let feedVC:FeedBackVController = FeedBackVController()
 //        feedVC.hidesBottomBarWhenPushed = true
 //        //喜欢，鼓励
 //        
-//        switch(indexPath.row){
-//        case 0:
-//            self.navigationController?.pushViewController(aboutVC, animated: true)
-//            break
+        switch(indexPath.row){
+        case 0:
+            self.navigationController?.pushViewController(aboutVC, animated: true)
+            break
 //        case 1:
 //            self.navigationController?.pushViewController(feedVC, animated: true)
 //            break
@@ -213,10 +217,10 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
 //            let str = "http://itunes.apple.com/us/app/id" + "12344"
 //            UIApplication.shared.openURL(URL(string: str)!)
 //            break
-//            
-//        default:print("")
-//            
-//        }
+            
+        default:print("")
+            
+        }
 //
         
     }
@@ -246,6 +250,10 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
 
         }
        
+    }
+    
+    override var prefersStatusBarHidden: Bool{
+        return true
     }
     
 }

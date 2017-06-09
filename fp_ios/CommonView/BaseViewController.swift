@@ -28,8 +28,6 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        self.navigationController?.isNavigationBarHidden = true //隐藏系统导航栏
-        
         //状态栏
         statusView = UIView(frame: CGRect(x: 0, y: 0, width: SRC_WIDTH, height: 20))
         statusView.backgroundColor = SYS_WHITE
@@ -37,7 +35,6 @@ class BaseViewController: UIViewController {
         
         
         self.initNavBarView()//初始化导航栏
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     func setStatusBarWithColor(_ color:UIColor){
@@ -51,9 +48,9 @@ class BaseViewController: UIViewController {
         
         self.view.addSubview(navbar)
         
-        navbar.leftButton.addTarget(self, action:Selector("leftbtnPressed:"),
+        navbar.leftButton.addTarget(self, action:#selector(BaseViewController.leftbtnPressed(_:)),
             for: UIControlEvents.touchUpInside)
-        navbar.backButton.addTarget(self, action:Selector("backbtnPressed:"),
+        navbar.backButton.addTarget(self, action:#selector(BaseViewController.backbtnPressed(_:)),
             for: UIControlEvents.touchUpInside)
         self.view.addSubview(navbar)
         
