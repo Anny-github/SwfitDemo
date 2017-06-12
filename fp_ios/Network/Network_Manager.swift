@@ -81,18 +81,32 @@ class Network_Manager {
     
     func parseJsonResponse(_ responseData:DataResponse<Any>,passValue:@escaping CompletionBlock)
     {
+        SVProgressHUD.dismiss()
+
         
         if responseData.result.isSuccess{ //请求成功
             let json:JSON = JSON(responseData.data!)
-            //if json["code"] == 0  说明有数据
+            if json["resultCode"] == 0 { //说明有数据
+                if json["data"].rawString() != nil{
+                    passValue(json["data"].rawString(String.Encoding.utf8, options: JSONSerialization.WritingOptions.prettyPrinted)!,true)
+
+                }else{
+                    passValue("",true)
+                }
+
+            }else{
+                passValue(json["resultMessage"].rawString()!,false)
+ 
+            }
             
-            passValue(json["data"].rawString(String.Encoding.utf8, options: JSONSerialization.WritingOptions.prettyPrinted)!,true)
             
         }else{
+            if SystemHelper.shared().isNetReachable() == false{
+                SVProgressHUD.showError(withStatus: "请检查网络连接")
+            }
             passValue("",false)
         }
         
-        SVProgressHUD.dismiss()
 
     }
     

@@ -66,7 +66,31 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     
     func getUserInfo(){
         
-        Network_Manager.shareInstance().getRequest(urlString: TestGetUrl, params: [:]) { (result, success) in
+        let param = ["phone":"15910615632","userPass":"E10ADC3949BA59ABBE56E057F20F883E"]
+//        let jsonStr = "{\"phone\" : \"15910615632\",\"userPass\" : \"E10ADC3949BA59ABBE56E057F20F883E\"}"
+//        
+//        let data = jsonStr.data(using: .utf8)
+//        let dict = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+        Network_Manager.shareInstance().postRequest("userSession/loginByPhonePass", params: param) { (result, success) in
+            if success {
+                if result.characters.count > 0{ //证明有data字段
+                    //解析
+                    
+                }else{
+                    TSLog("请求成功")
+                }
+                
+            }else{
+                TSLog("请求失败")
+                if result.characters.count > 0{
+                    AppStatusPop.showErrorWithStatus(result)
+
+                }
+            }
+            
+        }
+        
+        /*Network_Manager.shareInstance().getRequest(urlString: TestGetUrl, params: [:]) { (result, success) in
             if success{
                 let testmodel = Mapper<TestModel>().map(JSONString:result)
                 
@@ -83,7 +107,7 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
             }else{
 
             }
-        }
+        }*/
         
 
         

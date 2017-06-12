@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 class AppFile: NSObject {
 
@@ -28,45 +29,32 @@ class AppFile: NSObject {
         return mutableDic
     }
     
-    
     //MARK:存储用户信息字典
     class func saveUserInfo(_ userInfo:Dictionary<String, Any>){
-        //print(NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true).first as! String)
-        
         var dic:[String:Any] = AppFile.checkSet()
-
-        let arr:EnumeratedSequence = userInfo.keys.enumerated()
     
-        for key in arr
-        {
-            let value = userInfo[Key ]
-            TSLog(value)
-
+        for (key,value) in userInfo{
             if value as! NSObject == NSNull() || value as! String == "<null>"
             {
                 
             }else{
-                dic.updateValue(value, forKey: key!)
+                dic.updateValue(value, forKey: key)
             }
         }
         
         AppFile.saveSet(dic)
-
     }
     
-//    class func userModel() -> UserMode{
-//        
-//        let dic:NSDictionary = AppFile.checkSet()
-//        var usermode:UserMode = UserMode(JSONString: String.data(JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.prettyPrinted)))
-//        do{
-//            usermode = try UserMode(JSONDecoder(dic))
-//
-//        }catch{
-//            
-//        }
-//        return usermode
-//    
-//    }
+    class func userModel() -> UserMode{
+        
+        let dic:Dictionary = AppFile.checkSet()
+        let data = try? JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
+        let jsonStr = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+        
+        let usermode = Mapper<UserMode>().map(JSONString: jsonStr as! String)
+        return usermode!
+    
+    }
     
     class func saveSet(_ dic :Dictionary<String,Any>)
     {
@@ -74,21 +62,5 @@ class AppFile: NSObject {
         let dict:NSDictionary = NSDictionary(dictionary: dic)
         dict.write(toFile: path, atomically: true)
     }
-    
-    //MARK:取用户信息字典
-//    class func getUserInfo()->UserMode{
-//        TSLog(AppFile.UsrInfoPath())
-//        let dic:NSDictionary = AppFile.checkSet()
-//        
-//        TSLog(dic)
-//        var userInfo:UserMode = UserMode()
-//        do{
-//            userInfo = try UserMode(JSONDecoder(dic))
-//        }catch{
-////            xfl
-//        }
-//        return userInfo
-//    }
-    
     
 }

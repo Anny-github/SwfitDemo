@@ -32,7 +32,7 @@ private let systemInstance: SystemHelper = SystemHelper()
 
 class SystemHelper:NSObject {
     var reach:Reachability!
-
+    
     override init() {
         super.init()
         self.reach = Reachability()
@@ -95,11 +95,15 @@ class SystemHelper:NSObject {
         } else {
             TSLog("网络连接：不可用")
             DispatchQueue.main.async { // 不加这句导致界面还没初始化完成就打开警告框，这样不行
-                self.alert_noNetwrok() // 警告框，提示没有网络
+//                self.alert_noNetwrok() // 警告框，提示没有网络
             }
         }
     }
+    func isNetReachable() -> Bool{
+        return self.reach.isReachable
+    }
     
+
     // 警告框，提示没有连接网络 *********************
     func alert_noNetwrok() -> Void {
         let alert = UIAlertController(title: "系统提示", message: "请打开网络连接", preferredStyle: .alert)

@@ -56,6 +56,9 @@
 		1CB414431BC64D4A0015FC9F /* AboutViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB414421BC64D4A0015FC9F /* AboutViewCotroller.xib */; };
 		53052F411EE6A6E100E061FA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53052F401EE6A6E100E061FA /* Tools.swift */; };
 		534849E11EEA378C00625846 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534849E01EEA378C00625846 /* BaseNavigationController.swift */; };
+		538D05521EEE734100D5204F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538D05511EEE734100D5204F /* UserNotifications.framework */; };
+		538D05541EEE7B5300D5204F /* shibai.png in Resources */ = {isa = PBXBuildFile; fileRef = 538D05531EEE7B5300D5204F /* shibai.png */; };
+		538D05571EEE8C2600D5204F /* AppStatusPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D05561EEE8C2600D5204F /* AppStatusPop.swift */; };
 		53B6CF571EE7FFBA001B1C5F /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6CF561EE7FFBA001B1C5F /* TestModel.swift */; };
 		763E46BC4AD7A1B99F134BFA /* Pods_fp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F28F0FF4FA36A6ED88E85E /* Pods_fp_ios.framework */; };
 /* End PBXBuildFile section */
@@ -141,6 +144,10 @@
 		53052F3F1EE6A41100E061FA /* fp_ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fp_ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		53052F401EE6A6E100E061FA /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		534849E01EEA378C00625846 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		538D05511EEE734100D5204F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		538D05531EEE7B5300D5204F /* shibai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shibai.png; sourceTree = "<group>"; };
+		538D05551EEE834000D5204F /* fp_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fp_ios.entitlements; sourceTree = "<group>"; };
+		538D05561EEE8C2600D5204F /* AppStatusPop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStatusPop.swift; sourceTree = "<group>"; };
 		53B6CF561EE7FFBA001B1C5F /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		8492E502BDA1898B1CA8176F /* Pods-fp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fp_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fp_ios/Pods-fp_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		C2F28F0FF4FA36A6ED88E85E /* Pods_fp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538D05521EEE734100D5204F /* UserNotifications.framework in Frameworks */,
 				15CAB8F81B9053B7003B6DB5 /* libsqlite3.0.dylib in Frameworks */,
 				15CAB8F61B9053B0003B6DB5 /* libz.dylib in Frameworks */,
 				15597C1D1B846CBB004CF654 /* Security.framework in Frameworks */,
@@ -192,6 +200,7 @@
 				158807261B81DC62004EE7D0 /* NSStringExt.swift */,
 				1C1189CD1B90460400D3F234 /* AppFile.swift */,
 				53052F401EE6A6E100E061FA /* Tools.swift */,
+				538D05561EEE8C2600D5204F /* AppStatusPop.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -224,6 +233,7 @@
 		1511C24F1BD0D5810033B74F /* testimg */ = {
 			isa = PBXGroup;
 			children = (
+				538D05531EEE7B5300D5204F /* shibai.png */,
 				1511C25C1BD0D5B60033B74F /* Default-568h@2x.png */,
 				1511C2501BD0D5AB0033B74F /* 57icon@2x.png */,
 				1511C2511BD0D5AB0033B74F /* 114icon@2x.png */,
@@ -258,6 +268,7 @@
 		1537E37D1B730B230007A10E /* fp_ios */ = {
 			isa = PBXGroup;
 			children = (
+				538D05551EEE834000D5204F /* fp_ios.entitlements */,
 				1511C24F1BD0D5810033B74F /* testimg */,
 				157674511B8471F500A9B0B9 /* Framework */,
 				158806671B817495004EE7D0 /* Network */,
@@ -391,6 +402,7 @@
 		BD8D7262750E6CE78B0D0FAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				538D05511EEE734100D5204F /* UserNotifications.framework */,
 				1C925BED1BCB59AB00565093 /* CoreSpotlight.framework */,
 				04DE082C8FDAB34004036855 /* Pods.framework */,
 				C2F28F0FF4FA36A6ED88E85E /* Pods_fp_ios.framework */,
@@ -464,6 +476,11 @@
 						DevelopmentTeam = DQM4YAG2ZF;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					1537E38F1B730B230007A10E = {
 						CreatedOnToolsVersion = 6.4;
@@ -509,6 +526,7 @@
 				1537E3881B730B230007A10E /* Images.xcassets in Resources */,
 				1511C25A1BD0D5AB0033B74F /* icon.png in Resources */,
 				1511C2591BD0D5AB0033B74F /* icon_120.png in Resources */,
+				538D05541EEE7B5300D5204F /* shibai.png in Resources */,
 				1CB414431BC64D4A0015FC9F /* AboutViewCotroller.xib in Resources */,
 				1511C25B1BD0D5AB0033B74F /* icon@2x.png in Resources */,
 			);
@@ -594,6 +612,7 @@
 				158807271B81DC62004EE7D0 /* NSStringExt.swift in Sources */,
 				1C1189CE1B90460400D3F234 /* AppFile.swift in Sources */,
 				158806691B8174C3004EE7D0 /* API_URL.swift in Sources */,
+				538D05571EEE8C2600D5204F /* AppStatusPop.swift in Sources */,
 				1C5807D31B8DAD030037FF17 /* LabelAndTfCell.swift in Sources */,
 				1C1CF6F21B7C393F0089CE5E /* PhoneInputView.swift in Sources */,
 				53052F411EE6A6E100E061FA /* Tools.swift in Sources */,
@@ -730,6 +749,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = fp_ios/fp_ios.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DQM4YAG2ZF;
@@ -751,10 +771,10 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ysh.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobedu.yingshibao.kaoyan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "07b09ff9-cae3-4284-8554-096b2f334aaf";
-				PROVISIONING_PROFILE_SPECIFIER = WildTestProvisionFile;
+				PROVISIONING_PROFILE = "61280ff9-5520-47e4-a869-c4e1db3a0688";
+				PROVISIONING_PROFILE_SPECIFIER = devyingshibao;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/fp_ios/fp_ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -767,6 +787,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = fp_ios/fp_ios.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
@@ -787,7 +808,7 @@
 					"$(PROJECT_DIR)/fp_ios/Third/WeChatSDK_1.5_OnlyIphone",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ysh.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobedu.yingshibao.kaoyan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
