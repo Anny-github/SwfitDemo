@@ -81,7 +81,7 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
                 }
                 
             }else{
-                TSLog("请求失败")
+                TSLog(result)
                 if result.characters.count > 0{
                     AppStatusPop.showErrorWithStatus(result)
 

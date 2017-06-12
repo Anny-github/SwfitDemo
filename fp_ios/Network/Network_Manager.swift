@@ -26,7 +26,8 @@ typealias CompletionBlock = (_ result:String,_ success:Bool)->Void
 
 let headers: HTTPHeaders = [
 //    "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
-    "Accept": "application/json"
+//    "Accept": "application/json",
+    "Content-Type":"text/plain"
 ]
 
 private let networkMgr = Network_Manager()
@@ -38,6 +39,7 @@ class Network_Manager {
 
     //单例方法
     class func shareInstance()->Network_Manager{
+
         return networkMgr
     }
     
@@ -50,10 +52,10 @@ class Network_Manager {
             urlStr = BASE_URL + urlString
         }
 
-         Alamofire.request(urlStr, method: .post, parameters: params, encoding:URLEncoding.queryString, headers: headers).responseJSON(completionHandler: { (responseData) in
+        Alamofire.request(urlStr, method: .post, parameters: params, encoding:URLEncoding.default, headers: nil).responseJSON(completionHandler: { (responseData) in
             
             self.parseJsonResponse(responseData, passValue: passValue)
-         
+            
         })
     }
     
