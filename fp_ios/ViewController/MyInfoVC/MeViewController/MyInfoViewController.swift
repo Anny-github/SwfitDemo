@@ -69,9 +69,6 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     
     func popPwdtfView(){
         self.pwdInputV = PwdInputVC()
-        self.pwdInputV.finishInputPwd = { (inputText:String)-> Void  in
-            TSLog(inputText)
-        }
         self.navigationController?.pushViewController(self.pwdInputV, animated: true)
 
     }

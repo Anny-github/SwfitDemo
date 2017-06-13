@@ -54,6 +54,7 @@
 		1C830F241BA802B800B8E774 /* FPTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C830F231BA802B800B8E774 /* FPTextView.swift */; };
 		1C8966271BCF9C33008D5ACC /* SystemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8966261BCF9C33008D5ACC /* SystemHelper.swift */; };
 		1CB414431BC64D4A0015FC9F /* AboutViewCotroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB414421BC64D4A0015FC9F /* AboutViewCotroller.xib */; };
+		5304A0301EEFE4F200DACE4B /* PwdInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304A02F1EEFE4F200DACE4B /* PwdInputView.swift */; };
 		53052F411EE6A6E100E061FA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53052F401EE6A6E100E061FA /* Tools.swift */; };
 		534849E11EEA378C00625846 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534849E01EEA378C00625846 /* BaseNavigationController.swift */; };
 		538D05521EEE734100D5204F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538D05511EEE734100D5204F /* UserNotifications.framework */; };
@@ -144,6 +145,7 @@
 		1C8966261BCF9C33008D5ACC /* SystemHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemHelper.swift; sourceTree = "<group>"; };
 		1C925BED1BCB59AB00565093 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
 		1CB414421BC64D4A0015FC9F /* AboutViewCotroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewCotroller.xib; sourceTree = "<group>"; };
+		5304A02F1EEFE4F200DACE4B /* PwdInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwdInputView.swift; sourceTree = "<group>"; };
 		53052F3F1EE6A41100E061FA /* fp_ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fp_ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		53052F401EE6A6E100E061FA /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		534849E01EEA378C00625846 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 		538D059A1EEF900600D5204F /* PWDinputView */ = {
 			isa = PBXGroup;
 			children = (
+				5304A02F1EEFE4F200DACE4B /* PwdInputView.swift */,
 				538D05A01EEF906900D5204F /* PwdTextField.swift */,
 				538D05A21EEFB94B00D5204F /* PwdInputVC.swift */,
 				538D05A41EEFD0E600D5204F /* PaintView.swift */,
@@ -634,6 +637,7 @@
 				158806691B8174C3004EE7D0 /* API_URL.swift in Sources */,
 				538D05571EEE8C2600D5204F /* AppStatusPop.swift in Sources */,
 				1C5807D31B8DAD030037FF17 /* LabelAndTfCell.swift in Sources */,
+				5304A0301EEFE4F200DACE4B /* PwdInputView.swift in Sources */,
 				1C1CF6F21B7C393F0089CE5E /* PhoneInputView.swift in Sources */,
 				53052F411EE6A6E100E061FA /* Tools.swift in Sources */,
 				150556AD1B7AE6710066CEDF /* NavBarView.swift in Sources */,

@@ -10,8 +10,9 @@ import UIKit
 
 class PaintView: UIView {
 
-    private var points:Int!
-    var paintNum:Int!
+    private var points:Int = 0
+    var paintNum:Int = 0
+    
     var tfWidth:Float = 0
     var tfHeight:Float = 0
 
@@ -19,6 +20,8 @@ class PaintView: UIView {
         super.init(frame: frame)
         tfWidth = Float(frame.size.width)
         tfHeight = Float(frame.size.height)
+        self.layer.borderWidth = 0.3;
+        self.layer.borderColor = UIColor.lightGray.cgColor
         
     }
     
@@ -26,51 +29,68 @@ class PaintView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func totalPoints(pointNum:Int!){
+    func totalPoints(pointNum:Int){
         self.points = pointNum
         self.initTextFieldStyle()
     }
     func initTextFieldStyle(){
-        
-        let eachWidth = tfWidth/Float(self.points)
-        
-        for i in 1...self.points {
-            let leftX = eachWidth * Float(i)
-            let line = UIView(frame: CGRect(x:CGFloat(leftX), y:0, width:0.2,height:CGFloat(tfHeight)))
-            line.backgroundColor = UIColor.gray
-            self.addSubview(line)
-        }
+//        for subV in self.subviews {
+//            subV.removeFromSuperview()
+//        }
+//        let eachWidth = tfWidth/Float(self.points)
+//        
+//        for i in 1...self.points {
+//            let leftX = eachWidth * Float(i)
+//            let line = UIView(frame: CGRect(x:CGFloat(leftX), y:0, width:0.2,height:CGFloat(tfHeight)))
+//            line.backgroundColor = UIColor.gray
+//            self.addSubview(line)
+//        }
     }
     
     
-    func paintPoints(pointsNum:Int!){
+    func paintPoints(pointsNum:Int){
         self.paintNum = pointsNum
-        self.draw(self.frame)
+        self.setNeedsDisplay()
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        //总共几个原点要画
         let context = UIGraphicsGetCurrentContext()
         
         //设置填充色
         context?.setFillColor(UIColor.lightGray.cgColor)
+        context?.setStrokeColor(UIColor.lightGray.cgColor)
+        context?.setLineWidth(0.2)
+        //画分割线
+        let eachWidth = tfWidth/Float(self.points)
         
-        let pointW = tfWidth/Float(self.paintNum)/Float(2.0)
+        for i in 1...self.points {
+            let leftX = eachWidth * Float(i)
+//            let rect = CGRect(x:CGFloat(leftX), y:0, width:0.2,height:CGFloat(tfHeight))
+            context?.addLines(between: [CGPoint(x: CGFloat(leftX),y:CGFloat(0)),CGPoint(x: CGFloat(leftX),y:CGFloat(tfHeight))])
+            
+        }
+        context?.strokePath()
+
+        if self.paintNum == 0 {
+            return
+        }
+
+        //画密码点
+        let pointW = tfWidth/Float(self.points)/Float(2.0)
         let pointH = pointW
         
-        let eachWidth = tfWidth/Float(self.paintNum)
+//        let eachWidth = tfWidth/Float(self.points)
         let y = (tfHeight - pointH)/2.0
         
         for i in 0...(self.paintNum-1) {
             //计算原点位置
             let leftX = eachWidth*Float(i) + (eachWidth-pointW)/2.0
-            
-            context?.fillEllipse(in: CGRect(x:CGFloat(leftX), y:CGFloat(y), width:CGFloat(pointW), height:CGFloat(pointH)))
+            let rect = CGRect(x:CGFloat(leftX), y:CGFloat(y), width:CGFloat(pointW), height:CGFloat(pointH))
+            context?.addEllipse(in: rect)
         }
-        
-        context?.strokePath()
+        context?.fillPath()
     }
 
 

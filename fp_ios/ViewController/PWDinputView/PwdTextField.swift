@@ -15,22 +15,21 @@ class PwdTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
        
-        self.layer.borderWidth = 0.3;
-        self.layer.borderColor = UIColor.lightGray.cgColor
+        
         self.keyboardType = UIKeyboardType.numberPad
         self.textColor = UIColor.clear;
         
-        let shadeView = UIView(frame:self.bounds)
-        shadeView.backgroundColor = UIColor.white
-        shadeView.isUserInteractionEnabled = false
-        self.addSubview(shadeView)
-        
+        self.shadeView = PaintView(frame:self.bounds)
+        self.shadeView.backgroundColor = UIColor.white
+        self.shadeView.isUserInteractionEnabled = false
+        self.addSubview(self.shadeView)
     }
+   
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func pointLimit(numberLmt: Int!){
+    func pointLimit(numberLmt: Int){
         self.numberLimit = numberLmt
         self.shadeView!.totalPoints(pointNum: numberLmt)
     }

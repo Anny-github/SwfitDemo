@@ -8,53 +8,27 @@
 
 import UIKit
 
-typealias FinishInputPWD = (_ inputText:String) -> Void
 
-class PwdInputVC: UIViewController,UITextFieldDelegate {
+class PwdInputVC: UIViewController {
     
-    var finishInputPwd:FinishInputPWD!
-    var pwdTf:PwdTextField!
+    var pwdView:PwdInputView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
         
-//        self.setPWDView()
-        self.pwdTf = PwdTextField.init(frame: CGRect(x:20,y:100,width:SRC_WIDTH-40,height:50))
-        self.pwdTf.delegate = self
-        self.pwdTf!.pointLimit(numberLmt: 6)
-        
-        self.view.addSubview(self.pwdTf)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.textFieldDidChange), name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
-        
+        self.setPWDView()
     }
     private func setPWDView(){
-        self.pwdTf = PwdTextField.init(frame: CGRect(x:20,y:100,width:SRC_WIDTH-40,height:50))
-        self.pwdTf.delegate = self
-        self.pwdTf!.pointLimit(numberLmt: 6)
+        self.pwdView = PwdInputView.init(frame: CGRect(x:20,y:100,width:SRC_WIDTH-40,height:50))
+        self.pwdView!.pointLimit(numberLmt: 6)
+        self.view.addSubview(self.pwdView)
+        self.pwdView.finishInputPwd = { (inputText:String) -> Void in
+            AppStatusPop.showInfoWithStatus(status: inputText)
+            TSLog("输入的密码========\(inputText)")
+        }
 
-        self.view.addSubview(self.pwdTf)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(self.textFieldDidChange), name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
     }
     
-    func textFieldDidChange(){
-        if self.pwdTf.text?.characters.count == self.pwdTf.numberLimit{
-            self.finishInputPwd(self.pwdTf.text!)
-            self.view.endEditing(true)
-
-        }
-    }
-    
-//MARK: ---------UITextFieldDelegate--
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.text?.characters.count == self.pwdTf.numberLimit{
-            return false
-        }else if textField.text?.characters.count == self.pwdTf.numberLimit-1{
-            return true
-        }
-        return false
-        
-    }
-   
+       
 }
