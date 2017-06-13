@@ -27,7 +27,6 @@ class PwdInputVC: UIViewController {
             AppStatusPop.showInfoWithStatus(status: inputText)
             TSLog("输入的密码========\(inputText)")
         }
-
     }
     
        

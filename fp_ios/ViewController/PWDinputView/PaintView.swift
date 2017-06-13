@@ -20,7 +20,7 @@ class PaintView: UIView {
         super.init(frame: frame)
         tfWidth = Float(frame.size.width)
         tfHeight = Float(frame.size.height)
-        self.layer.borderWidth = 0.3;
+        self.layer.borderWidth = 0.5;
         self.layer.borderColor = UIColor.lightGray.cgColor
         
     }
@@ -61,7 +61,7 @@ class PaintView: UIView {
         //设置填充色
         context?.setFillColor(UIColor.lightGray.cgColor)
         context?.setStrokeColor(UIColor.lightGray.cgColor)
-        context?.setLineWidth(0.2)
+        context?.setLineWidth(0.5)
         //画分割线
         let eachWidth = tfWidth/Float(self.points)
         
