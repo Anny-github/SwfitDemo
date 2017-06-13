@@ -59,7 +59,7 @@ class Network_Manager {
         })
     }
     
-//    //统一的get方法
+    //统一的get方法
     func getRequest(urlString:String,params:Parameters,passValue:@escaping CompletionBlock)
     {
         SVProgressHUD.show()
@@ -80,12 +80,10 @@ class Network_Manager {
     /**
     * 解析返回的data,返回nsdictionary
     */
-    
     func parseJsonResponse(_ responseData:DataResponse<Any>,passValue:@escaping CompletionBlock)
     {
         SVProgressHUD.dismiss()
 
-        
         if responseData.result.isSuccess{ //请求成功
             let json:JSON = JSON(responseData.data!)
             if json["resultCode"] == 0 { //说明有数据
@@ -112,15 +110,11 @@ class Network_Manager {
 
     }
     
-    
-    
    //TODO: 4.1	获取验证码接口
-    
     func getValidateCode(_ params:Dictionary<String,AnyObject>,passValue:CompletionBlock)
     {
         //上行数据
         TSLog("上行数据 \(params)")
-        
         
     }
     

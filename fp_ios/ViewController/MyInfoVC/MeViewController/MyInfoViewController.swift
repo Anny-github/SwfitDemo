@@ -19,7 +19,7 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
 //    lazy var usermode:UserMode = {
 //        return try UserMode(JSONDecoder(SetUtil.checkSet()))
 //        }()
-    
+    var pwdInputV:PwdInputVC!
     @IBOutlet weak var tableView: UITableView!
     
      //title数组
@@ -61,6 +61,18 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         UIApplication.shared.setStatusBarHidden(true, with: .none)
 
         setSubViews()
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(self.popPwdtfView))
+        
+
+    }
+    
+    func popPwdtfView(){
+        self.pwdInputV = PwdInputVC()
+        self.pwdInputV.finishInputPwd = { (inputText:String)-> Void  in
+            TSLog(inputText)
+        }
+        self.navigationController?.pushViewController(self.pwdInputV, animated: true)
 
     }
     
@@ -84,7 +96,6 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
                 TSLog(result)
                 if result.characters.count > 0{
                     AppStatusPop.showErrorWithStatus(result)
-
                 }
             }
             

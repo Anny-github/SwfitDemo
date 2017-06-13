@@ -59,6 +59,9 @@
 		538D05521EEE734100D5204F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538D05511EEE734100D5204F /* UserNotifications.framework */; };
 		538D05541EEE7B5300D5204F /* shibai.png in Resources */ = {isa = PBXBuildFile; fileRef = 538D05531EEE7B5300D5204F /* shibai.png */; };
 		538D05571EEE8C2600D5204F /* AppStatusPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D05561EEE8C2600D5204F /* AppStatusPop.swift */; };
+		538D05A11EEF906900D5204F /* PwdTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D05A01EEF906900D5204F /* PwdTextField.swift */; };
+		538D05A31EEFB94B00D5204F /* PwdInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D05A21EEFB94B00D5204F /* PwdInputVC.swift */; };
+		538D05A51EEFD0E600D5204F /* PaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D05A41EEFD0E600D5204F /* PaintView.swift */; };
 		53B6CF571EE7FFBA001B1C5F /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6CF561EE7FFBA001B1C5F /* TestModel.swift */; };
 		763E46BC4AD7A1B99F134BFA /* Pods_fp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F28F0FF4FA36A6ED88E85E /* Pods_fp_ios.framework */; };
 /* End PBXBuildFile section */
@@ -148,6 +151,9 @@
 		538D05531EEE7B5300D5204F /* shibai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shibai.png; sourceTree = "<group>"; };
 		538D05551EEE834000D5204F /* fp_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fp_ios.entitlements; sourceTree = "<group>"; };
 		538D05561EEE8C2600D5204F /* AppStatusPop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStatusPop.swift; sourceTree = "<group>"; };
+		538D05A01EEF906900D5204F /* PwdTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwdTextField.swift; sourceTree = "<group>"; };
+		538D05A21EEFB94B00D5204F /* PwdInputVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwdInputVC.swift; sourceTree = "<group>"; };
+		538D05A41EEFD0E600D5204F /* PaintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintView.swift; sourceTree = "<group>"; };
 		53B6CF561EE7FFBA001B1C5F /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		8492E502BDA1898B1CA8176F /* Pods-fp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fp_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fp_ios/Pods-fp_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		C2F28F0FF4FA36A6ED88E85E /* Pods_fp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +221,7 @@
 		150556BE1B7B28040066CEDF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				538D059A1EEF900600D5204F /* PWDinputView */,
 				1C5807C61B8D98B50037FF17 /* Common_View */,
 				150556BF1B7B28040066CEDF /* MyInfoVC */,
 			);
@@ -399,6 +406,16 @@
 			path = Common_View;
 			sourceTree = "<group>";
 		};
+		538D059A1EEF900600D5204F /* PWDinputView */ = {
+			isa = PBXGroup;
+			children = (
+				538D05A01EEF906900D5204F /* PwdTextField.swift */,
+				538D05A21EEFB94B00D5204F /* PwdInputVC.swift */,
+				538D05A41EEFD0E600D5204F /* PaintView.swift */,
+			);
+			path = PWDinputView;
+			sourceTree = "<group>";
+		};
 		BD8D7262750E6CE78B0D0FAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,7 +495,7 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -598,12 +615,14 @@
 				1C1CF6E61B7B62A50089CE5E /* RegLoginViewController.swift in Sources */,
 				1C25966E1B86F51000359A46 /* AboutViewController.swift in Sources */,
 				53B6CF571EE7FFBA001B1C5F /* TestModel.swift in Sources */,
+				538D05A11EEF906900D5204F /* PwdTextField.swift in Sources */,
 				1C1189D01B9052F100D3F234 /* UserMode.swift in Sources */,
 				1C36436D1BB1514F00447F51 /* ExistLoginView.swift in Sources */,
 				1C754A571B8C6BDF00E4AC51 /* Common_StaticValue.swift in Sources */,
 				1C1CF7071B7C8B110089CE5E /* IconButton.swift in Sources */,
 				150556B01B7AE6A20066CEDF /* UIViewExt.swift in Sources */,
 				1C830F241BA802B800B8E774 /* FPTextView.swift in Sources */,
+				538D05A51EEFD0E600D5204F /* PaintView.swift in Sources */,
 				1C8966271BCF9C33008D5ACC /* SystemHelper.swift in Sources */,
 				1C5807CB1B8D98B50037FF17 /* SelectionView.swift in Sources */,
 				150556AC1B7AE6710066CEDF /* BaseViewController.swift in Sources */,
@@ -611,6 +630,7 @@
 				1588071C1B818673004EE7D0 /* Network_Manager.swift in Sources */,
 				158807271B81DC62004EE7D0 /* NSStringExt.swift in Sources */,
 				1C1189CE1B90460400D3F234 /* AppFile.swift in Sources */,
+				538D05A31EEFB94B00D5204F /* PwdInputVC.swift in Sources */,
 				158806691B8174C3004EE7D0 /* API_URL.swift in Sources */,
 				538D05571EEE8C2600D5204F /* AppStatusPop.swift in Sources */,
 				1C5807D31B8DAD030037FF17 /* LabelAndTfCell.swift in Sources */,
@@ -749,7 +769,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = fp_ios/fp_ios.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DQM4YAG2ZF;
@@ -771,10 +790,10 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobedu.yingshibao.kaoyan;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ysh.fp-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "61280ff9-5520-47e4-a869-c4e1db3a0688";
-				PROVISIONING_PROFILE_SPECIFIER = devyingshibao;
+				PROVISIONING_PROFILE = "07b09ff9-cae3-4284-8554-096b2f334aaf";
+				PROVISIONING_PROFILE_SPECIFIER = WildTestProvisionFile;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/fp_ios/fp_ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -787,7 +806,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = fp_ios/fp_ios.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
@@ -808,7 +826,7 @@
 					"$(PROJECT_DIR)/fp_ios/Third/WeChatSDK_1.5_OnlyIphone",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobedu.yingshibao.kaoyan;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ysh.fp-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

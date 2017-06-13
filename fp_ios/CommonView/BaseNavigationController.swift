@@ -12,7 +12,7 @@ class BaseNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationBar.isHidden = true //隐藏系统导航栏
+//        self.navigationBar.isHidden = true //隐藏系统导航栏
         self.interactivePopGestureRecognizer?.delegate = nil
     }
 
