@@ -78,7 +78,7 @@ class PaintView: UIView {
         }
 
         //画密码点
-        let pointW = tfWidth/Float(self.points)/Float(2.0)
+        let pointW = tfWidth/Float(self.points)/Float(2.2)
         let pointH = pointW
         
 //        let eachWidth = tfWidth/Float(self.points)
