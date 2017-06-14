@@ -24,7 +24,7 @@ class NavBarView: UIView {
         self.backgroundColor = SYS_WHITE
         
         //导航栏背景图片
-        backgroundImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.width, height: 44))
+        backgroundImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.width, height: 64))
         //backgroundImageView.image =
         //backgroundImageView.backgroundColor =
         self.addSubview(backgroundImageView)

@@ -53,8 +53,7 @@ class AboutViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = SYS_BGCOLOR
-        self.navbar.titleLabel.text = "关于我们"
-        
+        self.title = "关于我们"
         //版本
         let versionDic = Bundle.main.infoDictionary!
         let version = versionDic["CFBundleShortVersionString"] as! String

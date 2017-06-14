@@ -8,15 +8,14 @@
 
 import UIKit
 
-
-class PwdInputVC: UIViewController {
+class PwdInputVC: BaseViewController {
     
     var pwdView:PwdInputView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        
+        self.title = "密码验证"
         self.setPWDView()
     }
     private func setPWDView(){

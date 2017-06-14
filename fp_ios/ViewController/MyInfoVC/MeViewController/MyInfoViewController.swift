@@ -13,7 +13,7 @@ import ObjectMapper
 let TestGetUrl = "http://www.xiaohongshu.com/api/sns/v1/system_service/config?build=421018&deviceId=4BDA1423-0084-4D19-8696-B570B3DBF43B&lang=zh&launchtimes=4&package=com.xingin.discover&platform=iOS&sid=session.1181171505858585505&sign=3e3ef0c177e7cf91a3e6e3856a97dc23&t=1496820966&version=4.21"
 
 
-class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate {
     var centerView: UIView!
     var headImgV: UIImageView!
 //    lazy var usermode:UserMode = {
@@ -26,8 +26,8 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     var titleArr:Array<String>!
     var imageArr:Array<UIImage?>
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        titleArr = ["关于我们","帮助与反馈","喜欢，鼓励一下"]
-        imageArr = [Center_AboutUS_Icon,Center_FeedBack_Icon,Center_CommentUS_Icon]
+        titleArr = ["关于我们","常见帮助","喜欢，鼓励一下","密码页测试"]
+        imageArr = [Center_AboutUS_Icon,Center_FeedBack_Icon,Center_CommentUS_Icon,Center_FeedBack_Icon]
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
     }
@@ -54,24 +54,13 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = SYS_BGCOLOR
-        self.navbar.isHidden = true
-        self.statusView.isHidden = true
-//        self.statusView.backgroundColor = SYS_BLUE
-        UIApplication.shared.setStatusBarHidden(true, with: .none)
-
+        self.navigationController?.delegate = self
         setSubViews()
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(self.popPwdtfView))
-        
-
+       
     }
     
-    func popPwdtfView(){
-        self.pwdInputV = PwdInputVC()
-        self.navigationController?.pushViewController(self.pwdInputV, animated: true)
-
-    }
     
     func getUserInfo(){
         
@@ -233,22 +222,28 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        //关于
         let aboutVC:AboutViewController = AboutViewController()
-//        //帮助与反馈
-//        let feedVC:FeedBackVController = FeedBackVController()
-//        feedVC.hidesBottomBarWhenPushed = true
+        //帮助与反馈
+        let helpVC:HelpH5Controller = HelpH5Controller()
+        helpVC.hidesBottomBarWhenPushed = true
 //        //喜欢，鼓励
-//        
+        
+        //密码页
+        self.pwdInputV = PwdInputVC()
+//
         switch(indexPath.row){
         case 0:
             self.navigationController?.pushViewController(aboutVC, animated: true)
             break
-//        case 1:
-//            self.navigationController?.pushViewController(feedVC, animated: true)
-//            break
+        case 1:
+            self.navigationController?.pushViewController(helpVC, animated: true)
+            break
 //        case 2: //跳转appStore
 //            let str = "http://itunes.apple.com/us/app/id" + "12344"
 //            UIApplication.shared.openURL(URL(string: str)!)
 //            break
+        case 3: //密码
+            self.navigationController?.pushViewController(self.pwdInputV, animated: true)
+            break
             
         default:print("")
             
@@ -262,7 +257,6 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     //TODO:修改头像
     func headImgChangeBtnClick(){
         let cameraV:CameraView = CameraView()
-        
         
         cameraV.showCamera { (selectImg, imgName, imgPath) -> Void in
              self.headImgV.image = selectImg
@@ -283,9 +277,16 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         }
        
     }
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        var isSelf = false
+        if viewController is MyInfoViewController{
+            isSelf = true
+        }
+        self.navigationController?.setNavigationBarHidden(isSelf, animated: true)
+    }    // 将要显示控制器
     
-    override var prefersStatusBarHidden: Bool{
-        return true
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return UIStatusBarStyle.lightContent
     }
-    
+
 }

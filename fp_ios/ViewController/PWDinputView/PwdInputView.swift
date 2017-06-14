@@ -43,10 +43,7 @@ class PwdInputView: UIView ,UITextFieldDelegate{
         self.shadeView!.totalPoints(pointNum: numberLmt)
     }
     
-    func addCircle(){
-        self.shadeView.paintPoints(pointsNum: self.pwdTf.text!.characters.count)
-    }
-
+    
     func textFieldDidChange(){
         self.shadeView.paintPoints(pointsNum: self.pwdTf.text!.characters.count)
 

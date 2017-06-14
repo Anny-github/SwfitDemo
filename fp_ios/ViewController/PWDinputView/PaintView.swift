@@ -21,7 +21,7 @@ class PaintView: UIView {
         tfWidth = Float(frame.size.width)
         tfHeight = Float(frame.size.height)
         self.layer.borderWidth = 0.5;
-        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderColor = UIColor.black.cgColor
         
     }
     
@@ -44,8 +44,8 @@ class PaintView: UIView {
         let context = UIGraphicsGetCurrentContext()
         
         //设置填充色
-        context?.setFillColor(UIColor.lightGray.cgColor)
-        context?.setStrokeColor(UIColor.lightGray.cgColor)
+        context?.setFillColor(UIColor.black.cgColor)
+        context?.setStrokeColor(UIColor.black.cgColor)
         context?.setLineWidth(0.5)
         //画分割线
         let eachWidth = tfWidth/Float(self.points)
@@ -63,7 +63,7 @@ class PaintView: UIView {
         }
 
         //画密码点
-        let pointW = tfWidth/Float(self.points)/Float(2.2)
+        let pointW = tfWidth/Float(self.points)/Float(2.5)
         let pointH = pointW
         
 //        let eachWidth = tfWidth/Float(self.points)

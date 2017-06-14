@@ -13,7 +13,7 @@ import UIKit
 
 
 class BaseViewController: UIViewController {
-
+    var leftBtnItem:UIBarButtonItem!
     var navbar:NavBarView!
     let define = Tools()
     var statusView:UIView!
@@ -28,14 +28,22 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        //状态栏
-        statusView = UIView(frame: CGRect(x: 0, y: 0, width: SRC_WIDTH, height: 20))
-        statusView.backgroundColor = SYS_WHITE
-        self.view.addSubview(statusView)
         
-        
-        self.initNavBarView()//初始化导航栏
+        let image = UIImage.init(named: "back_icon")
+        let leftBtn = UIButton(frame: CGRect(x:0, y:0, width:(image?.size.width)!, height:44))
+        leftBtn.setImage(image, for: .normal)
+        leftBtn.addTarget(self, action: #selector(self.backBtnClick(backBtn:)), for: .touchUpInside)
+        leftBtnItem = UIBarButtonItem.init(customView: leftBtn)
+        if (self.navigationController?.childViewControllers.count)! > 1{
+            self.navigationItem.leftBarButtonItem = self.leftBtnItem
+        }
     }
+    
+    func backBtnClick(backBtn:UIButton){
+        self.view.endEditing(true)
+        self.navigationController?.popViewController(animated: true)
+    }
+
     
     func setStatusBarWithColor(_ color:UIColor){
         statusView.backgroundColor = color
