@@ -26,8 +26,8 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     var titleArr:Array<String>!
     var imageArr:Array<UIImage?>
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        titleArr = ["关于我们","常见帮助","喜欢，鼓励一下","密码页测试"]
-        imageArr = [Center_AboutUS_Icon,Center_FeedBack_Icon,Center_CommentUS_Icon,Center_FeedBack_Icon]
+        titleArr = ["关于我们","常见帮助测试WebKit","喜欢，鼓励一下","密码页测试","JS和OC"]
+        imageArr = [Center_AboutUS_Icon,Center_FeedBack_Icon,Center_CommentUS_Icon,Center_FeedBack_Icon,Center_AboutUS_Icon]
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
     }
@@ -224,11 +224,13 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         let aboutVC:AboutViewController = AboutViewController()
         //帮助与反馈
         let helpVC:HelpH5Controller = HelpH5Controller()
-        helpVC.hidesBottomBarWhenPushed = true
 //        //喜欢，鼓励
         
         //密码页
         self.pwdInputV = PwdInputVC()
+        
+        //JS OC
+        
 //
         switch(indexPath.row){
         case 0:
@@ -244,6 +246,8 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         case 3: //密码
             self.navigationController?.pushViewController(self.pwdInputV, animated: true)
             break
+        case 4:
+            self.navigationController?.pushViewController(JSCallOC(), animated: true)
             
         default:print("")
             

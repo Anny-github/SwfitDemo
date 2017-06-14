@@ -65,6 +65,8 @@
 		538D05A31EEFB94B00D5204F /* PwdInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D05A21EEFB94B00D5204F /* PwdInputVC.swift */; };
 		538D05A51EEFD0E600D5204F /* PaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D05A41EEFD0E600D5204F /* PaintView.swift */; };
 		53B6CF571EE7FFBA001B1C5F /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6CF561EE7FFBA001B1C5F /* TestModel.swift */; };
+		53D09B571EF13F6A0050A03E /* JSCallOC.html in Resources */ = {isa = PBXBuildFile; fileRef = 53D09B561EF13F690050A03E /* JSCallOC.html */; };
+		53D09B5A1EF13FEC0050A03E /* JSCallOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D09B591EF13FEC0050A03E /* JSCallOC.swift */; };
 		763E46BC4AD7A1B99F134BFA /* Pods_fp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F28F0FF4FA36A6ED88E85E /* Pods_fp_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -159,6 +161,8 @@
 		538D05A21EEFB94B00D5204F /* PwdInputVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwdInputVC.swift; sourceTree = "<group>"; };
 		538D05A41EEFD0E600D5204F /* PaintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintView.swift; sourceTree = "<group>"; };
 		53B6CF561EE7FFBA001B1C5F /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		53D09B561EF13F690050A03E /* JSCallOC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = JSCallOC.html; sourceTree = "<group>"; };
+		53D09B591EF13FEC0050A03E /* JSCallOC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSCallOC.swift; sourceTree = "<group>"; };
 		8492E502BDA1898B1CA8176F /* Pods-fp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fp_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fp_ios/Pods-fp_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		C2F28F0FF4FA36A6ED88E85E /* Pods_fp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -226,6 +230,7 @@
 		150556BE1B7B28040066CEDF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				53D09B581EF13FA80050A03E /* JSAndWebTest */,
 				538D059A1EEF900600D5204F /* PWDinputView */,
 				1C5807C61B8D98B50037FF17 /* Common_View */,
 				150556BF1B7B28040066CEDF /* MyInfoVC */,
@@ -289,6 +294,7 @@
 				1C1CF7051B7C8B110089CE5E /* Category */,
 				150556B51B7B16550066CEDF /* Third */,
 				150556A71B7AE6710066CEDF /* CommonView */,
+				53D09B551EF13F5F0050A03E /* resource */,
 				150556AA1B7AE6710066CEDF /* Util */,
 				1537E3801B730B230007A10E /* AppDelegate.swift */,
 				53052F3F1EE6A41100E061FA /* fp_ios-Bridging-Header.h */,
@@ -422,6 +428,22 @@
 			path = PWDinputView;
 			sourceTree = "<group>";
 		};
+		53D09B551EF13F5F0050A03E /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				53D09B561EF13F690050A03E /* JSCallOC.html */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		53D09B581EF13FA80050A03E /* JSAndWebTest */ = {
+			isa = PBXGroup;
+			children = (
+				53D09B591EF13FEC0050A03E /* JSCallOC.swift */,
+			);
+			path = JSAndWebTest;
+			sourceTree = "<group>";
+		};
 		BD8D7262750E6CE78B0D0FAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,6 +573,7 @@
 				1511C25A1BD0D5AB0033B74F /* icon.png in Resources */,
 				1511C2591BD0D5AB0033B74F /* icon_120.png in Resources */,
 				538D05541EEE7B5300D5204F /* shibai.png in Resources */,
+				53D09B571EF13F6A0050A03E /* JSCallOC.html in Resources */,
 				1CB414431BC64D4A0015FC9F /* AboutViewCotroller.xib in Resources */,
 				1511C25B1BD0D5AB0033B74F /* icon@2x.png in Resources */,
 			);
@@ -645,6 +668,7 @@
 				1C1CF6F21B7C393F0089CE5E /* PhoneInputView.swift in Sources */,
 				53052F411EE6A6E100E061FA /* Tools.swift in Sources */,
 				150556AD1B7AE6710066CEDF /* NavBarView.swift in Sources */,
+				53D09B5A1EF13FEC0050A03E /* JSCallOC.swift in Sources */,
 				1C1CF6F01B7C393F0089CE5E /* LoginView.swift in Sources */,
 				1C25966F1B86F51000359A46 /* MyInfoViewController.swift in Sources */,
 				1C5807CC1B8D98B50037FF17 /* TopGuideView.swift in Sources */,
