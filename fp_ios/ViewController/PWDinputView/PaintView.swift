@@ -31,22 +31,7 @@ class PaintView: UIView {
     
     func totalPoints(pointNum:Int){
         self.points = pointNum
-        self.initTextFieldStyle()
     }
-    func initTextFieldStyle(){
-//        for subV in self.subviews {
-//            subV.removeFromSuperview()
-//        }
-//        let eachWidth = tfWidth/Float(self.points)
-//        
-//        for i in 1...self.points {
-//            let leftX = eachWidth * Float(i)
-//            let line = UIView(frame: CGRect(x:CGFloat(leftX), y:0, width:0.2,height:CGFloat(tfHeight)))
-//            line.backgroundColor = UIColor.gray
-//            self.addSubview(line)
-//        }
-    }
-    
     
     func paintPoints(pointsNum:Int){
         self.paintNum = pointsNum
@@ -92,7 +77,4 @@ class PaintView: UIView {
         }
         context?.fillPath()
     }
-
-
-    
 }

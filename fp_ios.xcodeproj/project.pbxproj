@@ -60,7 +60,6 @@
 		538D05521EEE734100D5204F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538D05511EEE734100D5204F /* UserNotifications.framework */; };
 		538D05541EEE7B5300D5204F /* shibai.png in Resources */ = {isa = PBXBuildFile; fileRef = 538D05531EEE7B5300D5204F /* shibai.png */; };
 		538D05571EEE8C2600D5204F /* AppStatusPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D05561EEE8C2600D5204F /* AppStatusPop.swift */; };
-		538D05A11EEF906900D5204F /* PwdTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D05A01EEF906900D5204F /* PwdTextField.swift */; };
 		538D05A31EEFB94B00D5204F /* PwdInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D05A21EEFB94B00D5204F /* PwdInputVC.swift */; };
 		538D05A51EEFD0E600D5204F /* PaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D05A41EEFD0E600D5204F /* PaintView.swift */; };
 		53B6CF571EE7FFBA001B1C5F /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6CF561EE7FFBA001B1C5F /* TestModel.swift */; };
@@ -153,7 +152,6 @@
 		538D05531EEE7B5300D5204F /* shibai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shibai.png; sourceTree = "<group>"; };
 		538D05551EEE834000D5204F /* fp_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fp_ios.entitlements; sourceTree = "<group>"; };
 		538D05561EEE8C2600D5204F /* AppStatusPop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStatusPop.swift; sourceTree = "<group>"; };
-		538D05A01EEF906900D5204F /* PwdTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwdTextField.swift; sourceTree = "<group>"; };
 		538D05A21EEFB94B00D5204F /* PwdInputVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwdInputVC.swift; sourceTree = "<group>"; };
 		538D05A41EEFD0E600D5204F /* PaintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintView.swift; sourceTree = "<group>"; };
 		53B6CF561EE7FFBA001B1C5F /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
@@ -412,7 +410,6 @@
 			isa = PBXGroup;
 			children = (
 				5304A02F1EEFE4F200DACE4B /* PwdInputView.swift */,
-				538D05A01EEF906900D5204F /* PwdTextField.swift */,
 				538D05A21EEFB94B00D5204F /* PwdInputVC.swift */,
 				538D05A41EEFD0E600D5204F /* PaintView.swift */,
 			);
@@ -618,7 +615,6 @@
 				1C1CF6E61B7B62A50089CE5E /* RegLoginViewController.swift in Sources */,
 				1C25966E1B86F51000359A46 /* AboutViewController.swift in Sources */,
 				53B6CF571EE7FFBA001B1C5F /* TestModel.swift in Sources */,
-				538D05A11EEF906900D5204F /* PwdTextField.swift in Sources */,
 				1C1189D01B9052F100D3F234 /* UserMode.swift in Sources */,
 				1C36436D1BB1514F00447F51 /* ExistLoginView.swift in Sources */,
 				1C754A571B8C6BDF00E4AC51 /* Common_StaticValue.swift in Sources */,

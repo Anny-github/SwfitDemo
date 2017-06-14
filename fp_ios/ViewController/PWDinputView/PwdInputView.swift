@@ -13,7 +13,6 @@ typealias FinishInputPWD = (_ inputText:String) -> Void
 
 class PwdInputView: UIView ,UITextFieldDelegate{
     var finishInputPwd:FinishInputPWD!
-
     var numberLimit: Int!
     var shadeView:PaintView!
     var pwdTf:UITextField!
@@ -59,14 +58,9 @@ class PwdInputView: UIView ,UITextFieldDelegate{
     }
     
     //MARK: ---------UITextFieldDelegate--
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.text?.characters.count == self.numberLimit{
-            return false
-        }else if textField.text!.characters.count < self.numberLimit{
-            return true
-        }
-        return false
+        let length = textField.text!.characters.count - range.length + string.characters.count
+        return length <= self.numberLimit
         
     }
 
