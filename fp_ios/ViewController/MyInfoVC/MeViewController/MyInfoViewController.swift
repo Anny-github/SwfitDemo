@@ -235,28 +235,24 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         switch(indexPath.row){
         case 0:
             self.navigationController?.pushViewController(aboutVC, animated: true)
-            break
+        
         case 1:
             self.navigationController?.pushViewController(helpVC, animated: true)
-            break
 //        case 2: //跳转appStore
 //            let str = "http://itunes.apple.com/us/app/id" + "12344"
 //            UIApplication.shared.openURL(URL(string: str)!)
 //            break
         case 3: //密码
             self.navigationController?.pushViewController(self.pwdInputV, animated: true)
-            break
+            
         case 4:
             self.navigationController?.pushViewController(JSCallOC(), animated: true)
-            break;
+            
         case 5:
             self.navigationController?.pushViewController(OCCallJS(), animated: true)
-            break;
+            
         case 6:
             self.navigationController?.pushViewController(JSBOCAndJS(), animated: true)
-            break;
-        
-        
             
         default:print("")
             

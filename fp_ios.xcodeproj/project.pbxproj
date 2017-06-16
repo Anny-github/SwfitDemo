@@ -51,6 +51,7 @@
 		5304A0321EF0E6AA00DACE4B /* HelpH5Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304A0311EF0E6A900DACE4B /* HelpH5Controller.swift */; };
 		5304A0341EF0E6EB00DACE4B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5304A0331EF0E6EB00DACE4B /* WebKit.framework */; };
 		53052F411EE6A6E100E061FA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53052F401EE6A6E100E061FA /* Tools.swift */; };
+		531C35081EF3D7BA00A6A812 /* NewFuncLeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C35071EF3D7BA00A6A812 /* NewFuncLeaderView.swift */; };
 		534849E11EEA378C00625846 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534849E01EEA378C00625846 /* BaseNavigationController.swift */; };
 		538D05521EEE734100D5204F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538D05511EEE734100D5204F /* UserNotifications.framework */; };
 		538D05541EEE7B5300D5204F /* shibai.png in Resources */ = {isa = PBXBuildFile; fileRef = 538D05531EEE7B5300D5204F /* shibai.png */; };
@@ -146,6 +147,7 @@
 		5304A0331EF0E6EB00DACE4B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		53052F3F1EE6A41100E061FA /* fp_ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fp_ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		53052F401EE6A6E100E061FA /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		531C35071EF3D7BA00A6A812 /* NewFuncLeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFuncLeaderView.swift; sourceTree = "<group>"; };
 		534849E01EEA378C00625846 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		538D05511EEE734100D5204F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		538D05531EEE7B5300D5204F /* shibai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shibai.png; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		150556BE1B7B28040066CEDF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				531C35071EF3D7BA00A6A812 /* NewFuncLeaderView.swift */,
 				53D09B581EF13FA80050A03E /* JSAndWebTest */,
 				538D059A1EEF900600D5204F /* PWDinputView */,
 				1C5807C61B8D98B50037FF17 /* Common_View */,
@@ -676,6 +679,7 @@
 				1C1CF6F21B7C393F0089CE5E /* PhoneInputView.swift in Sources */,
 				53052F411EE6A6E100E061FA /* Tools.swift in Sources */,
 				150556AD1B7AE6710066CEDF /* NavBarView.swift in Sources */,
+				531C35081EF3D7BA00A6A812 /* NewFuncLeaderView.swift in Sources */,
 				53D09B5A1EF13FEC0050A03E /* JSCallOC.swift in Sources */,
 				1C1CF6F01B7C393F0089CE5E /* LoginView.swift in Sources */,
 				1C25966F1B86F51000359A46 /* MyInfoViewController.swift in Sources */,

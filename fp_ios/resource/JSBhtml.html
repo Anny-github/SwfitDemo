@@ -50,12 +50,18 @@
         setupWebViewJavascriptBridge(function(bridge) {
                                      
                                      bridge.registerHandler('testJSFunction', function(data, responseCallback) {
-                                                            alert('JS方法被调用:'+data);
+                                                            alert('JS方法被调用,传入参数:'+data);
                                                             responseCallback('js执行过了');
+                                                            })
+                                     
+                                     //无参数和回调
+                                     bridge.registerHandler('OCCallJSFunction', function( ){
+                                                            alert('OCCallJSFunction')
                                                             })
                                      
                                      
                                      })
+                                     
                                  
                                  
          //这个 shareClick 就是 原生那边 注入的函数 ， 通过这个方法来调用原生 和传值
@@ -70,6 +76,15 @@
                                                  
                                                  });
          }
+    
+        function changeColor(){
+            WebViewJavascriptBridge.callHandler('changeColor',function(resposne){
+                
+                document.getElementById("changeColorBtn").style.background = resposne;
+            });
+            
+        }
+    
     
     </script>
     
@@ -86,6 +101,14 @@
             <input type="button" value="分享" onclick="shareClick();" />
             </center>
         
+    </div>
+    
+    <div>
+        <center>
+            </br>
+            <input id="changeColorBtn" type="button" value="随机换色" onclick="changeColor();" />
+ 
+        </center>
     </div>
 
     

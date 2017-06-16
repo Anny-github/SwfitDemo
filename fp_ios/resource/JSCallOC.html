@@ -41,7 +41,7 @@
         }
     
         function calculateForJS(inputValue){
-            
+           <!- 必须的规定写法，实现configuration的userContentController的代理方法中的JS捕捉 -->
           window.webkit.messageHandlers.calculateDeal.postMessage(inputValue);
 
         }

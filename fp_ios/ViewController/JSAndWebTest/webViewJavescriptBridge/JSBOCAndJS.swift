@@ -7,6 +7,12 @@
 
 /*  关键是html文件中，相关webViewJavaScriptBridge的相关配置 */
 /*  共同协商好，函数名称和参数及参数类型  */
+/* webViewJavaScriptBridge 解决了单纯用WebView的内部方法的问题，就是实现了立即回调，可以将得到的结果或者状态通过传入的回调函数立即返回给对方， 而WebKit内部方法，只能是得到结果或状态之后再次调用对方的带参方法，才能传回数据*/
+
+//  调   callHandler
+// 被调  registerHandler
+//具体参数要根据html中的函数确定
+
 
 import UIKit
 import WebKit
@@ -87,11 +93,21 @@ class JSBOCAndJS: BaseViewController,WKNavigationDelegate,WKUIDelegate,WKScriptM
             
         }
         
+        self.webBridge.registerHandler("changeColor") { (nil, callBack) in
+            let colorValue = arc4random_uniform(600)
+            let color = "#\(colorValue)"
+            callBack!(color)
+        }
+        
         //OC 调 JS
         self.webBridge.callHandler("testJSFunction", data: "533") { (responseData) in
-            AppStatusPop.showInfoWithStatus(status: responseData as! String)
+            AppStatusPop.showInfoWithStatus(status: "回调回来的数据:\(responseData as! String)")
         }
 
+//        //OC 调 JS 无参无回调
+//        self.webBridge.callHandler("OCCallJSFunction")
+        
+        
     }
     
     //MARK: 进度条
