@@ -26,8 +26,8 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     var titleArr:Array<String>!
     var imageArr:Array<UIImage?>
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        titleArr = ["关于我们","常见帮助测试WebKit","喜欢，鼓励一下","密码页测试","JS和OC"]
-        imageArr = [Center_AboutUS_Icon,Center_FeedBack_Icon,Center_CommentUS_Icon,Center_FeedBack_Icon,Center_AboutUS_Icon]
+        titleArr = ["关于我们","常见帮助测试WebKit","喜欢，鼓励一下","密码页测试","JS调OC","OC调JS","WebViewJavaScriptBridge"]
+        imageArr = [Center_AboutUS_Icon,Center_FeedBack_Icon,Center_CommentUS_Icon,Center_FeedBack_Icon,Center_AboutUS_Icon,Center_AboutUS_Icon,Center_AboutUS_Icon]
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
     }
@@ -248,6 +248,15 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
             break
         case 4:
             self.navigationController?.pushViewController(JSCallOC(), animated: true)
+            break;
+        case 5:
+            self.navigationController?.pushViewController(OCCallJS(), animated: true)
+            break;
+        case 6:
+            self.navigationController?.pushViewController(JSBOCAndJS(), animated: true)
+            break;
+        
+        
             
         default:print("")
             

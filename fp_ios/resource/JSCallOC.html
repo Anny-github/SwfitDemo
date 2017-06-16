@@ -45,7 +45,14 @@
           window.webkit.messageHandlers.calculateDeal.postMessage(inputValue);
 
         }
+    
+        function pushViewControllerTitle(SecondViewController,secondPushedFromJS){
+            window.webkit.messageHandlers.pushViewControllerDeal.postMessage("SecondViewController,secondPushedFromJS");
 
+        }
+    
+    
+    
     </script>
     
 </head>
@@ -67,27 +74,16 @@
         <center>
             
             <br/>
-            <!- native 用JSExport协议，定义本地function -->
+            <!- native  定义本地function -->
             <input type="button" value="计算阶乘" onclick="calculateForJS(input.value);" />
             <br/>
             <br/>
-            
-            
-            <input type="button" value="测试log" onclick="log('测试');" />
-            <br/>
-            <br/>
-            
+           
+            <!- 在OC中实现alert，WKWebView的 WKUIDelegate   -->
             <input type="button" value="oc原生Alert" onclick="alert('alert');" />
             <br/>
             <br/>
-            
-            <input type="button" value="addSubView" onclick="addSubView('view');" />
-            <br/>
-            <br/>
-            <input type="button" value="多参数调用" onclick="mutiParams('参数1','参数2','参数3');" />
-            <br/>
-            <br/>
-            <a id="push" href="#" onclick="native.pushViewControllerTitle('SecondViewController','secondPushedFromJS');">
+            <a id="push" href="#" onclick="pushViewControllerTitle('SecondViewController','secondPushedFromJS');">
                 push to second ViewController
             </a>
             

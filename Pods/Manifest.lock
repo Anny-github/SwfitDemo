@@ -5,6 +5,7 @@ PODS:
   - ReachabilitySwift (3)
   - SVProgressHUD (2.1.2)
   - SwiftyJSON (3.1.4)
+  - WebViewJavascriptBridge (5.2.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - ReachabilitySwift (~> 3)
   - SVProgressHUD
   - SwiftyJSON
+  - WebViewJavascriptBridge (~> 5.0)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -21,7 +23,8 @@ SPEC CHECKSUMS:
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  WebViewJavascriptBridge: a00b2d61252aec5207e3263d46fd0fd3cfaf7895
 
-PODFILE CHECKSUM: 5594c3ae8036aa49faaf9e894abced0f70fa3a86
+PODFILE CHECKSUM: 51114db2e4f5ae5f616cf2f6326c5b1e31515e62
 
 COCOAPODS: 1.2.1

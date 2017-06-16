@@ -49,12 +49,11 @@ class JSCallOC: BaseViewController,WKNavigationDelegate,WKUIDelegate,WKScriptMes
         webView.load(URLRequest.init(url: url))
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         //JS 调 OC， 添加self 为 WKScriptMessageHandler
+        //在前端开发web的时候，就要协商好，方法名 ，而且要添加window.webkit.messageHandlers.calculateDeal.postMessage(inputValue);才能在xcode中操作
         webView.configuration.userContentController.add(self, name: "calculateDeal")
-//        
-//        //OC 调 JS，字符串里就是js的方法如:show()
-//        webView.evaluateJavaScript("show()") { (result, error) in
-//            
-//        }
+        webView.configuration.userContentController.add(self, name: "pushViewControllerDeal")
+
+
         progress = UIProgressView.init(frame: CGRect(x:0, y:64, width: SRC_WIDTH, height:1))
         progress.transform = CGAffineTransform.init(scaleX: 1, y: 0.5)
         progress.progressViewStyle = .bar
@@ -150,10 +149,12 @@ class JSCallOC: BaseViewController,WKNavigationDelegate,WKUIDelegate,WKScriptMes
         completionHandler()
 
     }
+    
     //JS 要弹出确认框
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Swift.Void){
         completionHandler(true)
     }
+    
     //JS 要弹出输入框
     func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Swift.Void){
         completionHandler(defaultText)
@@ -161,16 +162,26 @@ class JSCallOC: BaseViewController,WKNavigationDelegate,WKUIDelegate,WKScriptMes
     
     //MARK: WKScriptMessageHandler
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage){
-    
-        let inputValue = message.body
-        if inputValue is Int {
-            let value = inputValue as! Int
-            TSLog(inputValue)
-            AppStatusPop.showWithStatus(status:String(value*value))
-
+        if message.name == "calculateDeal"{
+            //计算阶乘，调JS显示结果
+            let inputValue = message.body as! String
+            if  inputValue.characters.count == 0 {
+                return
+            }
+            let value:Int = Int(inputValue)!
+            var result:Int = 1
+            for _ in 1...value{
+                result = result*value
+            }
+            AppStatusPop.showInfoWithStatus(status:String(result))
+            //OC 调 JS，传入OC计算好的参数，带给JS
+            webView.evaluateJavaScript("showResult(\(result))") { (response, error) in
+                if error == nil{
+                    AppStatusPop.showInfoWithStatus(status:"OC调JS成功")
+                }
+            }
+        }else if message.name == "pushViewControllerDeal"{
+            AppStatusPop.showInfoWithStatus(status:"pushViewControllerDeal带入参数：\(message.body)")
         }
-        
     }
-    
-    
 }
