@@ -39,7 +39,7 @@ class NewFuncLeaderView: UIView {
         holesFrames: 透明区域，诸如按钮等的frame
         holesOnViews：透明区域，诸如按钮所在的父视图， 根据所在view计算相对于window的frame
         holeStyle：透明区域样式，圆形，矩形，圆角矩形
-        responseClick：响应按钮事件点击
+        responseClick：是否响应按钮事件点击
      */
     func show(_ images:[UIImage],imageFrames:[CGRect],holesFrames:[CGRect],holesOnviews:[UIView],holeStyle:HoleStyle,responseClick:Bool){
         let window = UIApplication.shared.delegate?.window!
