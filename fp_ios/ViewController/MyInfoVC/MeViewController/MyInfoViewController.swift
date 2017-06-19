@@ -62,25 +62,31 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         self.navigationController?.delegate = self
         setSubViews()
         
+        let testNewFuncBtn = UIButton.init(frame: CGRect(x:0,y:20,width:110,height:40))
+        testNewFuncBtn.setTitle("测试新功能引导", for: .normal)
+        testNewFuncBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        self.tableView.tableHeaderView?.addSubview(testNewFuncBtn)
+        testNewFuncBtn.addTarget(self, action: #selector(self.showNewFuncLeaderView), for: .touchUpInside)
+        
         showNewFuncLeaderView()
        
     }
     
     func showNewFuncLeaderView(){
 
-        let window:UIWindow = UIApplication.shared.delegate!.window!!
         self.newFuncView = NewFuncLeaderView()
         
         //第三个cell的frame
         let cellFrame = tableView.rectForRow(at: IndexPath.init(row: 1, section: 0))
         let cellViewFrame = tableView.convert(cellFrame, to: self.view)
         
+        //一个页面显示所有引导
 //        newFuncView.show([UIImage(named:"好课推荐")!,UIImage(named:"考研切图")!], imageFrames: [CGRect(x:SRC_WIDTH/4.0,y:self.centerView.y - 70,width:120,height:50),CGRect(x:50,y:cellFrame.origin.y+cellFrame.size.height + 5,width:120,height:60)], holesFrames: [CGRect(x:0,y:self.centerView.y,width:self.centerView.width/2.0,height:self.centerView.height),cellViewFrame], holesOnviews: [self.tableView.tableHeaderView!,self.view], holeStyle: .roundRect, responseClick: true)
 
         //两个引导的做法
         self.newFuncView.reactClick = {
             self.newFuncView = NewFuncLeaderView()
-            self.newFuncView.show([UIImage(named:"考研切图")!], imageFrames: [CGRect(x:50,y:cellFrame.origin.y+cellFrame.size.height + 5,width:120,height:60)], holesFrames: [cellViewFrame], holesOnviews: [self.view], holeStyle: .roundRect, responseClick: false)
+            self.newFuncView.show([UIImage(named:"考研切图")!], imageFrames: [CGRect(x:50,y:cellFrame.origin.y+cellFrame.size.height + 5,width:120,height:60)], holesFrames: [cellViewFrame], holesOnviews: [self.view], holeStyle: .rect, responseClick: false)
             
         }
         

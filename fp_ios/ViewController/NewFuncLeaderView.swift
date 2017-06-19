@@ -37,7 +37,7 @@ class NewFuncLeaderView: UIView {
         images: 要显示的图片
         imageFrams： 图片要显示的位置
         holesFrames: 透明区域，诸如按钮等的frame
-        holesOnViews：透明区域，诸如按钮的frame， 根据所在view计算相对于window的frame
+        holesOnViews：透明区域，诸如按钮所在的父视图， 根据所在view计算相对于window的frame
         holeStyle：透明区域样式，圆形，矩形，圆角矩形
         responseClick：响应按钮事件点击
      */
@@ -69,14 +69,6 @@ class NewFuncLeaderView: UIView {
         super.draw(rect)
         
         let context  = UIGraphicsGetCurrentContext()
-        
-//        //先画 半透明背景
-//        let color = UIColor.white.withAlphaComponent(0.3)
-//        context?.setStrokeColor(color.cgColor)
-//        context?.setFillColor(color.cgColor)
-//        context?.addRect(CGRect(x:0,y:0,width:rect.size.width,height:rect.size.height))
-//        context?.fillPath()
-        
         
 //        //画图片
         for i in 0..<self.images.count{
@@ -135,7 +127,10 @@ class NewFuncLeaderView: UIView {
                     self.reactClick()
 
                 }
-                self.removeFromSuperview()
+                UIView.animate(withDuration: 0.8, animations: {
+                    self.removeFromSuperview()
+
+                })
             }
         }
     }
