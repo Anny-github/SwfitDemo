@@ -32,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         SystemHelper.shared().networkMonitor()
         
         self.window?.makeKeyAndVisible()
-        
         return true
     }
     

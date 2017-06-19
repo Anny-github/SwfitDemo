@@ -19,12 +19,12 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
 //    lazy var usermode:UserMode = {
 //        return try UserMode(JSONDecoder(SetUtil.checkSet()))
 //        }()
-    var pwdInputV:PwdInputVC!
     @IBOutlet weak var tableView: UITableView!
     
      //title数组
     var titleArr:Array<String>!
     var imageArr:Array<UIImage?>
+    var newFuncView:NewFuncLeaderView!
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         titleArr = ["关于我们","常见帮助测试WebKit","喜欢，鼓励一下","密码页测试","JS调OC","OC调JS","WebViewJavaScriptBridge"]
         imageArr = [Center_AboutUS_Icon,Center_FeedBack_Icon,Center_CommentUS_Icon,Center_FeedBack_Icon,Center_AboutUS_Icon,Center_AboutUS_Icon,Center_AboutUS_Icon]
@@ -45,28 +45,52 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     //修改资料
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getUserInfo()
+//        getUserInfo()
 
 //        let dic = SetUtil.checkSet()
 //        headImgV.kf_setImageWithURL(URL(string: (dic["buyerIcon"] as! String))!, placeholderImage: HeadImage!)
     }
 
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.automaticallyAdjustsScrollViewInsets = false
         self.view.backgroundColor = SYS_BGCOLOR
         self.navigationController?.delegate = self
         setSubViews()
+        
+        showNewFuncLeaderView()
        
     }
     
+    func showNewFuncLeaderView(){
+
+        let window:UIWindow = UIApplication.shared.delegate!.window!!
+        self.newFuncView = NewFuncLeaderView()
+        
+        //第三个cell的frame
+        let cellFrame = tableView.rectForRow(at: IndexPath.init(row: 1, section: 0))
+        let cellViewFrame = tableView.convert(cellFrame, to: self.view)
+        
+//        newFuncView.show([UIImage(named:"好课推荐")!,UIImage(named:"考研切图")!], imageFrames: [CGRect(x:SRC_WIDTH/4.0,y:self.centerView.y - 70,width:120,height:50),CGRect(x:50,y:cellFrame.origin.y+cellFrame.size.height + 5,width:120,height:60)], holesFrames: [CGRect(x:0,y:self.centerView.y,width:self.centerView.width/2.0,height:self.centerView.height),cellViewFrame], holesOnviews: [self.tableView.tableHeaderView!,self.view], holeStyle: .roundRect, responseClick: true)
+
+        //两个引导的做法
+        self.newFuncView.reactClick = {
+            self.newFuncView = NewFuncLeaderView()
+            self.newFuncView.show([UIImage(named:"考研切图")!], imageFrames: [CGRect(x:50,y:cellFrame.origin.y+cellFrame.size.height + 5,width:120,height:60)], holesFrames: [cellViewFrame], holesOnviews: [self.view], holeStyle: .roundRect, responseClick: false)
+            
+        }
+        
+        self.newFuncView.show([UIImage(named:"好课推荐")!], imageFrames: [CGRect(x:SRC_WIDTH/4.0,y:self.centerView.y - 70,width:120,height:50)], holesFrames: [CGRect(x:0,y:self.centerView.y,width:self.centerView.width/2.0,height:self.centerView.height)], holesOnviews: [self.tableView.tableHeaderView!], holeStyle: .roundRect, responseClick: false)
+        
+    }
     
     func getUserInfo(){
         
         let param = ["phone":"15910615632","userPass":"E10ADC3949BA59ABBE56E057F20F883E"]
-//        let jsonStr = "{\"phone\" : \"15910615632\",\"userPass\" : \"E10ADC3949BA59ABBE56E057F20F883E\"}"
-//        
 //        let data = jsonStr.data(using: .utf8)
 //        let dict = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments)
         Network_Manager.shareInstance().postRequest("userSession/loginByPhonePass", params: param) { (result, success) in
@@ -175,7 +199,7 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         personBtn.setImage(Center_PersonInfo_Icon, for:UIControlState())
         personBtn.setTitle("个人资料", for: UIControlState())
         personBtn.setTitleColor(TITLE_GRAY, for: UIControlState())
-//        personBtn.addTarget(self, action: Selector("personInfoBtn:"), for: UIControlEvents.touchUpInside)
+        personBtn.addTarget(self, action: #selector(self.personInfoBtn), for: .touchUpInside)
         let produceBtn:IconButton = IconButton(frame: CGRect(x: centerView.width/2.0, y: 0, width: centerView.width/2.0-10, height: centerView.height))
         produceBtn.setImage(Center_ProductInfo_Icon, for:UIControlState())
         produceBtn.setTitle("产品资料", for: UIControlState())
@@ -191,7 +215,7 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.tableHeaderView = headerView
         
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: SRC_WIDTH, height: SRC_HEIGHT - headerView.height - 100))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: SRC_WIDTH, height: 10))
         view.backgroundColor = SYS_BGCOLOR
         self.tableView.tableFooterView = view
         self.tableView.isScrollEnabled = true
@@ -227,7 +251,7 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
 //        //喜欢，鼓励
         
         //密码页
-        self.pwdInputV = PwdInputVC()
+        
         
         //JS OC
         
@@ -243,7 +267,7 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
 //            UIApplication.shared.openURL(URL(string: str)!)
 //            break
         case 3: //密码
-            self.navigationController?.pushViewController(self.pwdInputV, animated: true)
+            self.navigationController?.pushViewController(PwdInputVC(), animated: true)
             
         case 4:
             self.navigationController?.pushViewController(JSCallOC(), animated: true)
@@ -261,7 +285,11 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         
     }
     
+    //MARK: personInfoBtn
+    func personInfoBtn(){
     
+        self.navigationController?.pushViewController(PersionInfoVC(), animated: true)
+    }
     
     //TODO:修改头像
     func headImgChangeBtnClick(){

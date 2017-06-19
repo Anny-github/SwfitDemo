@@ -52,7 +52,6 @@ class PaintView: UIView {
         
         for i in 1...self.points {
             let leftX = eachWidth * Float(i)
-//            let rect = CGRect(x:CGFloat(leftX), y:0, width:0.2,height:CGFloat(tfHeight))
             context?.addLines(between: [CGPoint(x: CGFloat(leftX),y:CGFloat(0)),CGPoint(x: CGFloat(leftX),y:CGFloat(tfHeight))])
             
         }

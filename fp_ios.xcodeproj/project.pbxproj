@@ -52,6 +52,7 @@
 		5304A0341EF0E6EB00DACE4B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5304A0331EF0E6EB00DACE4B /* WebKit.framework */; };
 		53052F411EE6A6E100E061FA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53052F401EE6A6E100E061FA /* Tools.swift */; };
 		531C35081EF3D7BA00A6A812 /* NewFuncLeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C35071EF3D7BA00A6A812 /* NewFuncLeaderView.swift */; };
+		531C350A1EF7B6C700A6A812 /* PersionInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C35091EF7B6C700A6A812 /* PersionInfoVC.swift */; };
 		534849E11EEA378C00625846 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534849E01EEA378C00625846 /* BaseNavigationController.swift */; };
 		538D05521EEE734100D5204F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538D05511EEE734100D5204F /* UserNotifications.framework */; };
 		538D05541EEE7B5300D5204F /* shibai.png in Resources */ = {isa = PBXBuildFile; fileRef = 538D05531EEE7B5300D5204F /* shibai.png */; };
@@ -148,6 +149,7 @@
 		53052F3F1EE6A41100E061FA /* fp_ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fp_ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		53052F401EE6A6E100E061FA /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		531C35071EF3D7BA00A6A812 /* NewFuncLeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFuncLeaderView.swift; sourceTree = "<group>"; };
+		531C35091EF7B6C700A6A812 /* PersionInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersionInfoVC.swift; sourceTree = "<group>"; };
 		534849E01EEA378C00625846 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		538D05511EEE734100D5204F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		538D05531EEE7B5300D5204F /* shibai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shibai.png; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				1C36436C1BB1514F00447F51 /* ExistLoginView.swift */,
 				1C36436A1BB1513600447F51 /* ExistLoginView.xib */,
 				5304A0311EF0E6A900DACE4B /* HelpH5Controller.swift */,
+				531C35091EF7B6C700A6A812 /* PersionInfoVC.swift */,
 			);
 			path = MeViewController;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				1C5807D31B8DAD030037FF17 /* LabelAndTfCell.swift in Sources */,
 				5304A0301EEFE4F200DACE4B /* PwdInputView.swift in Sources */,
 				1C1CF6F21B7C393F0089CE5E /* PhoneInputView.swift in Sources */,
+				531C350A1EF7B6C700A6A812 /* PersionInfoVC.swift in Sources */,
 				53052F411EE6A6E100E061FA /* Tools.swift in Sources */,
 				150556AD1B7AE6710066CEDF /* NavBarView.swift in Sources */,
 				531C35081EF3D7BA00A6A812 /* NewFuncLeaderView.swift in Sources */,

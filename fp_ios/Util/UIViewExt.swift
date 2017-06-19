@@ -72,6 +72,7 @@ extension UIView {
         self.frame = rect
 
     }
+
     
     func setBottom(_ bottom:CGFloat)
     {
