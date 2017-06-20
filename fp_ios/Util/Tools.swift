@@ -62,6 +62,7 @@ class Tools:NSObject {
         }
         
     }
+    
     //TODO: 小数正则校验
     class func checkoutNumer(_ numStr:String)->Bool{
         let range = numStr.range(of: numStr)
@@ -78,16 +79,16 @@ class Tools:NSObject {
         
     }
     
-    //字典转json
-    class func toJsonString(_ dic:NSDictionary)->NSString{
+    //字典转jsonStr
+    class func toJsonString(_ dic:[String:Any])->String{
         
-        var jsonStr:NSString = NSString()
+        var jsonStr:String = ""
         
         do {
             let data:Data = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.prettyPrinted)
             
             if(data.count > 0 ){
-                jsonStr = NSString(data: data, encoding: String.Encoding.utf8.rawValue)!
+                jsonStr = String(data: data, encoding: .utf8)!
             }
             
             // use jsonData
@@ -98,6 +99,5 @@ class Tools:NSObject {
         
         return jsonStr
     }
-    
     
 }

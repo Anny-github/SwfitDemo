@@ -22,6 +22,7 @@ class NewFuncLeaderView: UIView {
     var holesFrames:[CGRect]!
     var holeStyle:HoleStyle = .rect
     var responseClick:Bool = false
+    var touchDisappearFrame:CGRect!
     
     override init(frame: CGRect) {
         super.init(frame:frame)
@@ -41,7 +42,7 @@ class NewFuncLeaderView: UIView {
         holeStyle：透明区域样式，圆形，矩形，圆角矩形
         responseClick：是否响应按钮事件点击
      */
-    func show(_ images:[UIImage],imageFrames:[CGRect],holesFrames:[CGRect],holesOnviews:[UIView],holeStyle:HoleStyle,responseClick:Bool){
+    func show(_ images:[UIImage],imageFrames:[CGRect],holesFrames:[CGRect],holesOnviews:[UIView],holeStyle:HoleStyle,responseClick:Bool,touchDisappearFrame:CGRect){
         let window = UIApplication.shared.delegate?.window!
         self.frame = (window?.bounds)!
         
@@ -59,6 +60,7 @@ class NewFuncLeaderView: UIView {
         
         self.holeStyle = holeStyle
         self.responseClick = responseClick
+        self.touchDisappearFrame = touchDisappearFrame
         window?.addSubview(self)
         self.setNeedsDisplay()
         
@@ -121,18 +123,34 @@ class NewFuncLeaderView: UIView {
         
         //override func point(inside point: CGPoint, with event: UIEvent?) -> Bool  如果返回YES 才会走到这里，说明是点击消失遮罩
         let point = touches.first?.location(in: self)
-        for frame in self.holesFrames{
-            if frame.contains(point!){
+        
+        if self.touchDisappearFrame != CGRect.zero { //设置了点击某frame消失引导
+            if self.touchDisappearFrame.contains(point!){
                 if self.reactClick != nil {
                     self.reactClick()
-
+                    
                 }
                 UIView.animate(withDuration: 0.8, animations: {
                     self.removeFromSuperview()
-
+                    
                 })
+
+            }
+        }else{
+            for frame in self.holesFrames{
+                if frame.contains(point!){
+                    if self.reactClick != nil {
+                        self.reactClick()
+                        
+                    }
+                    UIView.animate(withDuration: 0.8, animations: {
+                        self.removeFromSuperview()
+                        
+                    })
+                }
             }
         }
+        
     }
 }
 

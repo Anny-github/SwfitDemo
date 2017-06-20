@@ -77,21 +77,28 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         self.newFuncView = NewFuncLeaderView()
         
         //第三个cell的frame
-        let cellFrame = tableView.rectForRow(at: IndexPath.init(row: 1, section: 0))
-        let cellViewFrame = tableView.convert(cellFrame, to: self.view)
+        var cellFrame = self.tableView.rectForRow(at: IndexPath.init(row: 1, section: 0))
+        var cellViewFrame = self.tableView.convert(cellFrame, to: self.view)
         
-        //一个页面显示所有引导
-//        newFuncView.show([UIImage(named:"好课推荐")!,UIImage(named:"考研切图")!], imageFrames: [CGRect(x:SRC_WIDTH/4.0,y:self.centerView.y - 70,width:120,height:50),CGRect(x:50,y:cellFrame.origin.y+cellFrame.size.height + 5,width:120,height:60)], holesFrames: [CGRect(x:0,y:self.centerView.y,width:self.centerView.width/2.0,height:self.centerView.height),cellViewFrame], holesOnviews: [self.tableView.tableHeaderView!,self.view], holeStyle: .roundRect, responseClick: true)
+        //一个页面显示所有引导, 点击知道了 消失
+//        newFuncView.show([UIImage(named:"好课推荐")!,UIImage(named:"考研切图")!,UIImage(named:"知道了")!], imageFrames: [CGRect(x:SRC_WIDTH/4.0,y:self.centerView.y - 70,width:120,height:50),CGRect(x:50,y:cellFrame.origin.y+cellFrame.size.height + 5,width:120,height:60),CGRect(x:SRC_WIDTH/2.0-50,y:cellFrame.origin.y+cellFrame.size.height + 70,width:100,height:30)], holesFrames: [CGRect(x:0,y:self.centerView.y,width:self.centerView.width/2.0,height:self.centerView.height),cellViewFrame], holesOnviews: [self.tableView.tableHeaderView!,self.view], holeStyle: .roundRect, responseClick: false,touchDisappearFrame:CGRect(x:SRC_WIDTH/2.0-50,y:cellFrame.origin.y+cellFrame.size.height + 70,width:100,height:30))
+        
+        //一个页面只有一个引导的时候，响应按钮点击事件
+//        newFuncView.show([UIImage(named:"好课推荐")!], imageFrames: [CGRect(x:SRC_WIDTH/4.0,y:self.centerView.y - 70,width:120,height:50)], holesFrames: [CGRect(x:0,y:self.centerView.y,width:self.centerView.width/2.0,height:self.centerView.height)], holesOnviews: [self.tableView.tableHeaderView!], holeStyle: .roundRect, responseClick: true,touchDisappearFrame:CGRect.zero)
+
 
         //两个引导的做法
         self.newFuncView.reactClick = {
             self.newFuncView = NewFuncLeaderView()
-            self.newFuncView.show([UIImage(named:"考研切图")!], imageFrames: [CGRect(x:50,y:cellFrame.origin.y+cellFrame.size.height + 5,width:120,height:60)], holesFrames: [cellViewFrame], holesOnviews: [self.view], holeStyle: .rect, responseClick: false)
+            cellFrame = self.tableView.rectForRow(at: IndexPath.init(row: 1, section: 0))
+            cellViewFrame = self.tableView.convert(cellFrame, to: self.view)
+            
+            self.newFuncView.show([UIImage(named:"考研切图")!], imageFrames: [CGRect(x:50,y:cellFrame.origin.y+cellFrame.size.height + 5,width:120,height:60)], holesFrames: [cellViewFrame], holesOnviews: [self.view], holeStyle: .rect, responseClick: false,touchDisappearFrame:CGRect.zero)
             
         }
         
-        self.newFuncView.show([UIImage(named:"好课推荐")!], imageFrames: [CGRect(x:SRC_WIDTH/4.0,y:self.centerView.y - 70,width:120,height:50)], holesFrames: [CGRect(x:0,y:self.centerView.y,width:self.centerView.width/2.0,height:self.centerView.height)], holesOnviews: [self.tableView.tableHeaderView!], holeStyle: .roundRect, responseClick: false)
-        
+        self.newFuncView.show([UIImage(named:"好课推荐")!], imageFrames: [CGRect(x:SRC_WIDTH/4.0,y:self.centerView.y - 70,width:120,height:50)], holesFrames: [CGRect(x:0,y:self.centerView.y,width:self.centerView.width/2.0,height:self.centerView.height)], holesOnviews: [self.tableView.tableHeaderView!], holeStyle: .roundRect, responseClick: false,touchDisappearFrame:CGRect.zero)
+//
     }
     
     func getUserInfo(){
