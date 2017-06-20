@@ -161,17 +161,16 @@ class CameraView: UIView,UIImagePickerControllerDelegate,UINavigationControllerD
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [AnyHashable: Any]!) {
+        picker.dismiss(animated: true, completion: nil)
+
         if(image != nil){
             //写入
             let arr:Array<String> = saveImgToImagePath(image)
             self.selectedImage(image,arr.last!,arr.first!)
-            
-
         }
         
         //消失
         self.removeFromSuperview()
-        picker.dismiss(animated: true, completion: nil)
     }
     
     //存储图片

@@ -57,6 +57,11 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let directoryUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        var saveUrl = directoryUrl.appendingPathComponent("Audio", isDirectory: true)
+        saveUrl = saveUrl.appendingPathComponent("demo.mp3")
+        try? FileManager.default.removeItem(atPath: saveUrl.absoluteString)
+        
         self.automaticallyAdjustsScrollViewInsets = false
         self.view.backgroundColor = SYS_BGCOLOR
         self.navigationController?.delegate = self
@@ -69,7 +74,25 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         testNewFuncBtn.addTarget(self, action: #selector(self.showNewFuncLeaderView), for: .touchUpInside)
         
         showNewFuncLeaderView()
-       
+        
+        let testDownBtn = UIButton.init(frame: CGRect(x:SRC_WIDTH-120,y:20,width:110,height:40))
+        testDownBtn.setTitle("下载Mp3", for: .normal)
+        testDownBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        self.tableView.tableHeaderView?.addSubview(testDownBtn)
+        testDownBtn.addTarget(self, action: #selector(self.downloadMp3File), for: .touchUpInside)
+
+    }
+    
+    func downloadMp3File(){
+        let downloadUrl = "http://7sblip.com1.z0.glb.clouddn.com/weixin/dalibao/audio/liubinyinpin.mp3"
+  
+        let savePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(downloadUrl.replacingOccurrences(of: "/", with: ""))
+        
+        
+        Network_Manager.shareInstance().downloadFile(downloadUrl, savePathURL:savePath) { (resule, success) in
+            TSLog("下载结果\(success)")
+        }
+        
     }
     
     func showNewFuncLeaderView(){
@@ -309,20 +332,15 @@ class MyInfoViewController: BaseViewController,UITableViewDataSource,UITableView
         let cameraV:CameraView = CameraView()
         
         cameraV.showCamera { (selectImg, imgName, imgPath) -> Void in
-             self.headImgV.image = selectImg
 
             //上传头像
-            //用户id
-//            let imgParams = ["uploaderId":buyerId,"uploaderType":"1","uploadFrom":"1","file":imgPath,"fileName":imgName]
-//            
-//            var buyerIcon:String = String()
-//            Network_Manager.shareInstance().uploadFile(imgParams, passValue: { (dic, success) -> Void in
-//                if(success){
-//                    buyerIcon = dic["fileUrl"] as! String
-//                    SetUtil.changeUserHeader(buyerIcon)
-//                    self.headImgV.image = selectImg
-//                }
-//            })
+            Network_Manager.shareInstance().uploadImage([selectImg], imageNames: ["userIcon"], toUrl: "", result: { (jsonStr, success) in
+                if success{
+                    self.headImgV.image = selectImg
+                    //上传图片成功  请求服务器保存
+                }
+            })
+
 
         }
        

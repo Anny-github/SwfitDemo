@@ -122,40 +122,9 @@ class RegLoginViewController: BaseViewController,UIScrollViewDelegate{
             let param:Dictionary<String,String> = ["mobileNumber":self.phoneView.phoneTf.text!,"validateCode":self.loginV.codeTf.text!,"valueKey":valueKey.md5String()]
             
             //向服务器发起请求
-        
-            Network_Manager.shareInstance().login(param as Dictionary<String, AnyObject>, passValue: { (dic, success) -> Void in
-                if(success){
-                    print(dic)
-                    //登录成功存储信息
-//                    SetUtil.saveUserInfo(dic as! [AnyHashable: Any])
-//                    
-//                    let isComplete = (dic["isComplete"]! as AnyObject).intValue
-//                    
-//                    if(isComplete == 0){
-//                        //登录按钮点击，防止多次点击进入，判断已进入信息页 不在进入
-//                        for  viewcontroller in (self.navigationController?.childViewControllers)!{
-//                            if(viewcontroller is PerfectInfoVController){
-//                                return
-//                            }
-//                        }
-//                        
-//                        let infoVC:PerfectInfoVController = PerfectInfoVController()
-//                        self.navigationController?.pushViewController(infoVC, animated: true)
-//                        
-//                    }else{
-//
-//                        //MARK: 登录通知
-//                        NotificationCenter.default.post(name: Notification.Name(rawValue: NOFI_LOGINSUCCESS), object: nil)
-//                    }
-//                    
-                    
-                    
-                }
-                
-            })
-            
         }
         
+            
         //MARK:topView的闭包的实现{参数 in  方法体}
         topView.buttonSelected = {a in
             if(a == true){
